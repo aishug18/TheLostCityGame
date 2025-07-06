@@ -1,7 +1,9 @@
 if (in_range() && keyboard_check_pressed(ord("E"))) {
-	with (obj_StageController) {
-		journal_acquired = true;
-		alarm[0] = 1.5;	// 1.5 second delay
-	}
+	journal_acquired = true;
+	hide_sprite = true;
+}
+
+if (journal_acquired && mouse_check_button_pressed(mb_left)) {
 	instance_destroy();
+	room_goto_next();
 }

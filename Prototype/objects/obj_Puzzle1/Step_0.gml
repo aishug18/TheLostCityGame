@@ -1,10 +1,7 @@
 // Check if option is selected
 for (var i = 0; i < 4; i++) {
-    var btn_x = 500;
-    var btn_y = 160 + i * 60;
-
     if (mouse_check_button_pressed(mb_left) &&
-        point_in_rectangle(btn_x, btn_y, btn_x + 300, btn_y + 40, mouse_x, mouse_y)) {
+        point_in_rectangle(mouse_x, mouse_y, option_btns[i].btn_x, option_btns[i].btn_y, option_btns[i].btn_x + opt_btn_w, option_btns[i].btn_y + opt_btn_h)) {
         selected_index = i;
     }
 }
@@ -12,19 +9,14 @@ for (var i = 0; i < 4; i++) {
 // Next button
 if (answered_correct && show_next_button &&
 		mouse_check_button_pressed(mb_left) &&
-		point_in_rectangle(500, 550, 800, 590, mouse_x, mouse_y)) {
-
-    current_question++;
+		point_in_rectangle(mouse_x, mouse_y, next_btn.btn_x, next_btn.btn_y, next_btn.btn_x + next_btn.w, next_btn.btn_y + next_btn.h)) {
+	
+	current_question++;
     selected_index = -1;
     answered_correct = false;
     show_next_button = false;
 
     if (current_question >= array_length(question_data)) {
-		draw_set_color(c_white);
-		draw_text(700, 480, "You answered all questions correctly!");
-		
-		if(draw_continue_button(860, 520)) {
-			room_goto(rm_MainLevel);
-		}
+		puzzle_solved = true;
     }
 }

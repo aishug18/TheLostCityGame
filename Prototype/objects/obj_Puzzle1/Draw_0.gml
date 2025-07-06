@@ -1,59 +1,62 @@
-var question = question_data[current_question];
+if (!puzzle_solved) {
+	var question = question_data[current_question];
 
-// Draw journal
-draw_sprite(spr_JournalPage, 0, 100, 100);
+	// Draw journal
+	draw_sprite(spr_JournalPage, 0, 100, 260);
 
-// Draw question text
-draw_text(500, 100, question.text);
+	// Draw question text
+	draw_text(800, 300, question.text);
 
-// Draw options
-for (var i = 0; i < 4; i++) {
-	var opt = question.options[i];
-	
-	var btn_x = 500;
-    var btn_y = 160 + i * 60;
+	// Draw options
+	for (var i = 0; i < 4; i++) {
+	    var color = (i == selected_index) ? c_lime : c_black;
+	    draw_set_color(color);
+		draw_rectangle(option_btns[i].btn_x, option_btns[i].btn_y, option_btns[i].btn_x + opt_btn_w, option_btns[i].btn_y + opt_btn_h, true);	// outline
+		draw_set_color(c_white);
+	    draw_rectangle(option_btns[i].btn_x, option_btns[i].btn_y, option_btns[i].btn_x + opt_btn_w, option_btns[i].btn_y + opt_btn_h, false);	// filled
+		draw_set_color(c_black);
+		draw_text(option_btns[i].btn_x + 10, option_btns[i].btn_y + 10, question.options[i]);
+	}
+
+	// Draw submit button
+	if (selected_index != -1 && !answered_correct) {
+	    draw_set_color(c_white);
+		draw_rectangle(submit_btn.btn_x, submit_btn.btn_y, submit_btn.btn_x + submit_btn.w, submit_btn.btn_y + submit_btn.h, false);
+		draw_set_color(c_black);
+	    draw_text(submit_btn.btn_x + 10, submit_btn.btn_y + 10, "Submit");
+	}
+
+	// Feedback
+	if (answered_correct) {
+		draw_set_color(c_black);
+	    draw_text(500, 500, "Correct!");
     
-    var color = (i == selected_index) ? c_lime : c_white;
-    draw_set_color(color);
-    draw_rectangle(btn_x, btn_y, btn_x + 300, btn_y + 40, false);
-	draw_set_color(c_black);
-	
-	if (opt.is_sprite) {
-		var spr = asset_get_index(opt.value);
-		draw_sprite(spr, 0, btn_x + 10, btn_y + 10);
-	} else {
-		draw_text(btn_x + 10, btn_y + 10, opt.value);
+	    if (show_next_button) {
+			draw_set_color(c_white);
+	        draw_rectangle(next_btn.btn_x, next_btn.btn_y, next_btn.btn_x + next_btn.w, next_btn.btn_y + next_btn.h, false);
+			draw_set_color(c_black);
+	        draw_text(next_btn.btn_x + 10, next_btn.btn_y + 10, "Next");
+	    }
+	}
+	else if (selected_index != -1 && mouse_check_button_pressed(mb_left) && 
+				point_in_rectangle(mouse_x, mouse_y, submit_btn.btn_x, submit_btn.btn_y, submit_btn.btn_x + submit_btn.w, submit_btn.btn_y + submit_btn.h)) {
+    
+		// Submit clicked
+	    if (selected_index == question_data[current_question].correct_index) {
+	        answered_correct = true;
+	        show_next_button = true;
+	    }
+	    else {
+	        show_message("Incorrect. Try again.");
+	        selected_index = -1;
+	    }
 	}
 }
-
-// Draw submit button
-if (selected_index != -1 && !answered_correct) {
-    draw_set_color(c_white);
-	draw_rectangle(500, 420, 800, 460, false);
-	draw_set_color(c_black);
-    draw_text(510, 430, "Submit");
-}
-
-// Feedback
-if (answered_correct) {
-	draw_set_color(c_black);
-    draw_text(500, 500, "Correct!");
-    
-    if (show_next_button) {
-		draw_set_color(c_white);
-        draw_rectangle(500, 550, 800, 590, false);
-		draw_set_color(c_black);
-        draw_text(520, 560, "Next");
-    }
-}
-else if (selected_index != -1 && mouse_check_button_pressed(mb_left) && point_in_rectangle(500, 420, 800, 460, mouse_x, mouse_y)) {
-    // Submit clicked
-    if (selected_index == question_data[current_question].correct_index) {
-        answered_correct = true;
-        show_next_button = true;
-    }
-    else {
-        show_message("Incorrect. Try again.");
-        selected_index = -1;
-    }
+else {
+	draw_set_color(c_white);
+	draw_text(700, 480, "You answered all questions correctly!");
+	
+	if(draw_continue_button(860, 520)) {
+		room_goto_next();
+	}
 }

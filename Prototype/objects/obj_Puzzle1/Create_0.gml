@@ -2,22 +2,12 @@ current_question = 0;
 question_data = [
 	{
 		text: "What is the value of the following Mayan number?",
-		options: [
-			{ is_sprite: false, value: "3" },
-			{ is_sprite: false, value: "6" },
-			{ is_sprite: false, value: "12" },
-			{ is_sprite: false, value: "9" }
-		],
+		options: ["3", "6", "12", "9"],
 		correct_index: 2
 	},
 	{
 		text: "What is the Mayan symbol for the number 1?",
-		options: [
-			{ is_sprite: true, value: spr_Option1 },
-			{ is_sprite: true, value: spr_Option2 },
-			{ is_sprite: true, value: spr_Option3 },
-			{ is_sprite: true, value: spr_Option4 }
-		],
+		options: ["2 circles and 1 bar", "1 bar", "3 circles and 1 bar", "1 circle"],
 		correct_index: 3
 	},
 ];
@@ -25,6 +15,23 @@ question_data = [
 selected_index = -1;
 answered_correct = false;
 show_next_button = false;
+
+opt_btn_w = 300;
+opt_btn_h = 70;
+
+option_btns = [
+	{ btn_x: 800, btn_y: 400 },
+	{ btn_x: 800, btn_y: 475 },
+	{ btn_x: 800, btn_y: 550 },
+	{ btn_x: 800, btn_y: 625 },
+];
+
+submit_btn = { btn_x: 1200, btn_y: 630, w: 200, h: 60 };
+
+next_btn = { btn_x: 1200, btn_y: 630, w: 200, h: 60 };
+
+puzzle_solved = false;
+
 	
 
 
