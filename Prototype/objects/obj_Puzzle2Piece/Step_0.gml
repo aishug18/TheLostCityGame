@@ -1,9 +1,10 @@
-// Start dragging if mouse is pressed on this piece
-if (mouse_check_button_pressed(mb_left) && point_in_rectangle(mouse_x, mouse_y, x - sprite_width/2, y - sprite_height/2, x + sprite_width/2, y + sprite_height/2)) {
+var mx = device_mouse_x_to_gui(0);
+var my = device_mouse_y_to_gui(0);
+
+// Start dragging if mouse is pressed on this piece and is not the anchor
+if (!is_anchor && mouse_check_button_pressed(mb_left) && point_in_rectangle(mx, my, x - sprite_width/2, y - sprite_height/2, x + sprite_width/2, y + sprite_height/2)) {
     dragging = true;
-    offset_x = mouse_x - x;
-    offset_y = mouse_y - y;
-	show_debug_message("clicked and dragging");
+    drag_offset_x = mx - x;
 }
 
 // Stop dragging on mouse release
@@ -13,6 +14,9 @@ if(mouse_check_button_released(mb_left)) {
 
 // While dragging, move the piece but clamp it so it can't leave the box
 if (dragging) {
-	x = clamp(mouse_x - offset_x, box_left, box_right - sprite_width);
-	y = clamp(mouse_y - offset_y, box_top, box_bottom - sprite_height);
+	var bbox_half_w = (bbox_right - bbox_left) / 2;
+	var bbox_half_h =(bbox_bottom - bbox_top) / 2;
+
+	x = clamp(mx - drag_offset_x, box_left + bbox_half_w, box_right - bbox_half_w);
+	y = clamp(my - drag_offset_y, box_top + bbox_half_h, box_bottom - bbox_half_h);
 }

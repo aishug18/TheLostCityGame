@@ -1,4 +1,5 @@
-if(global.puzzle_active) exit;
+if (global.puzzle_active) exit;
+if (global.game_paused) exit;
 
 // Left/right: A/D or ←/→
 move_x = (keyboard_check(ord("D")) || keyboard_check(vk_right))

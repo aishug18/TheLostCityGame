@@ -1,19 +1,19 @@
-// Puzzle state stuff
-var center_x = 960;
-var center_y = 540;
-
 puzzle_solved = false;
 
 current_round = 0;	// Tracks which round we're on (0-2)
 total_rounds = 3;
-next = false;	// Let's you show "Next" button
-
-round_data = array_create(3);	// optional: preload data, can store layouts per round if needed
+puzzle_finished = false;	// True if all 3 rounds are completed
 
 round_complete_sprites = [
 	spr_Object0,
 	spr_Object1,
 	spr_Object2
+];
+
+round_messages = [
+	"You reassembled the sacred goblet of wisdom!",
+	"This object was used for human sacrifice rituals. Scary...",
+	"You've restored the crown of the great King!"
 ];
 
 // Spawns the correct pieces for each round
@@ -23,14 +23,17 @@ run_round = function(index) {
 		instance_destroy();
 	}
 	
-	var layout = get_round_layout(index);	// Fetch an array of piece data from a function
+	var layout = get_round_layout(index);	// contains sprite, offset_x, offset_y
 	
 	// For each piece, create it at a start position (x, y) and assign the correct location that the player needs to move it to
 	for (var i = 0; i < array_length(layout); i++) {
-		var piece = instance_create_layer(layout[i].x, layout[i].y, "Instances", obj_Puzzle2Piece);
-		piece.correct_x = layout[i].correct_x;
-		piece.correct_y = layout[i].correct_y;
-		piece.sprite_index = layout[i].sprite;	// assign the image
+		var piece = spawn_puzzle_piece(
+			layout[i].x,
+			layout[i].y,
+			layout[i].sprite, 
+			layout[i].offset_x,
+			layout[i].offset_y,
+			layout[i].is_anchor);
 	}
 };
 
@@ -43,18 +46,29 @@ run_puzzle = function () {
 		return;
 	}
 	
-	// Check if all pieces are close to their target (within 10 pixels)
+	var anchor = noone;
+	with (obj_Puzzle2Piece) {
+	    if (is_anchor) {
+	        anchor = id;
+	    }
+	}
+	
+	// Compare each piece's actual offset to its expected offset
 	var all_correct = true;
 	with (obj_Puzzle2Piece) {
-		if (point_distance(x, y, correct_x, correct_y) > 10) {
-			all_correct = false;
+		if (!is_anchor) {
+			var expected_x = anchor.x + offset_x;
+			var expected_y = anchor.y + offset_y;
+
+			if (point_distance(x, y, expected_x, expected_y) > 15) {
+				all_correct = false;
+			}
 		}
 	}
 	
 	if (all_correct) {
 		puzzle_solved = true;
 	}
-	
 	
 	// Check if Escape is pressed to exit puzzle
 	if (keyboard_check_pressed(vk_escape)) {
@@ -71,7 +85,7 @@ run_puzzle = function () {
 
 // Draw puzzle
 draw_puzzle = function () {
-	if (puzzle_solved) {
+	if (puzzle_solved && !puzzle_finished) {
 		// Hide the pieces
 		with (obj_Puzzle2Piece) {
 			visible = false;
@@ -81,41 +95,42 @@ draw_puzzle = function () {
 		var full_sprite = round_complete_sprites[current_round];
 		draw_sprite(full_sprite, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		
-		// Draw message box
+		// Draw message
 		draw_set_color(c_white);
-		draw_text(600, 700, "You reassembled the ancient mask...");
+		draw_text(750, 250, round_messages[current_round]);
 		
-		if (current_round < total_rounds - 1) {	// More rounds to go, so show Next button
-			draw_rectangle(800, 600, 1120, 660, false);
-			draw_set_color(c_black);
-			draw_text(880, 620, "Next");
-			
-			// When clicked, increment the round and spawn new pieces
-			if (mouse_check_button_pressed(mb_left)) {
+		// Draw Next button
+		draw_rectangle(840, 730, 1090, 780, false);
+		draw_set_color(c_black);
+		draw_text(850, 750, "Click to go to next round");
+		
+		if (mouse_check_button_pressed(mb_left)) {
+			if (current_round < total_rounds - 1) {	// More rounds to go
 				current_round++;
 				puzzle_solved = false;
 				run_round(current_round);
 			}
-		}
-		else {	// Final round -> show victory
-			draw_set_color(c_white);
-			draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
-		
-			if(draw_continue_button(860, 520)) {
-				solve_puzzle();
+			else {	// Last round is finished
+				puzzle_finished = true;
 			}
+		}
+	}
+	else if (puzzle_finished) {
+		draw_set_color(c_white);
+		draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
+		
+		if(draw_continue_button(860, 520)) {
+			solve_puzzle();
 		}
 	}
 	else {	// Draw puzzle
 		with (obj_Puzzle2Piece) {	// loop over every instance of obj_Puzzle2Piece
-			// Draw puzzle canvas background
-			draw_set_color(make_color_rgb(30, 30, 30)); // dark background
-			draw_rectangle(box_left, box_top, box_right, box_bottom, false); // outline
-
-			// Optional: translucent fill to show it's a container
+			// Draw canvas
+			draw_set_color(make_color_rgb(30, 30, 30));
+			draw_rectangle(box_left, box_top, box_right, box_bottom, false); // filled
 			draw_set_alpha(0.2);
 			draw_set_color(c_white);
-			draw_rectangle(box_left, box_top, box_right, box_bottom, true); // filled
+			draw_rectangle(box_left, box_top, box_right, box_bottom, true); // outline
 			draw_set_alpha(1);
 		}
 		
