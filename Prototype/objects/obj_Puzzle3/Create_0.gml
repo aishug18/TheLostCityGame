@@ -174,9 +174,6 @@ draw_puzzle = function () {
 		draw_text(100, 720, line_17);
 		
 		// Riddle and cipher
-		draw_set_halign(fa_center);
-		draw_set_valign(fa_middle);
-		
 		var riddle_line = "RIDDLE";
 		var date = "13.0.0.0.0";
 		var riddle_line_1 = "Align the four Jaguars,";
@@ -194,27 +191,24 @@ draw_puzzle = function () {
 		var clue_line_6 = "The fourth wheel is the Haab' date wheel.";
 		var clue_line_7 = "The month Kumk'u, glyph #4 is often associated with maize.";
 		
-		draw_text(1570, 140, riddle_line);
+		draw_text(1300, 140, riddle_line);
 		
-		draw_text(1570, 180, date);
+		draw_text(1300, 180, date);
 		
-		draw_text(1570, 220, riddle_line_1);
-		draw_text(1570, 250, riddle_line_2);
-		draw_text(1570, 280, riddle_line_3);
-		draw_text(1570, 310, riddle_line_4);
+		draw_text(1300, 220, riddle_line_1);
+		draw_text(1300, 250, riddle_line_2);
+		draw_text(1300, 280, riddle_line_3);
+		draw_text(1300, 310, riddle_line_4);
 		
-		draw_text(1570, 370, clue);
+		draw_text(1300, 370, clue);
 		
-		draw_text(1570, 410, clue_line_1);
-		draw_text(1570, 440, clue_line_2);
-		draw_text(1570, 470, clue_line_3);
-		draw_text(1570, 500, clue_line_4);
-		draw_text(1570, 530, clue_line_5);
-		draw_text(1570, 560, clue_line_6);
-		draw_text(1570, 590, clue_line_7);
-		
-		draw_set_halign(fa_left);
-		draw_set_valign(fa_top);
+		draw_text(1300, 410, clue_line_1);
+		draw_text(1300, 440, clue_line_2);
+		draw_text(1300, 470, clue_line_3);
+		draw_text(1300, 500, clue_line_4);
+		draw_text(1300, 530, clue_line_5);
+		draw_text(1300, 560, clue_line_6);
+		draw_text(1300, 590, clue_line_7);
 		
 		// Draw wheels
 		if (instance_exists(wheels[0])) {	// Draw NumWheel1
