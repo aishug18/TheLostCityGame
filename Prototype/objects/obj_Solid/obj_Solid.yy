@@ -1,12 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Puzzle1Trigger",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_Solid",
+  "eventList":[],
   "managed":true,
-  "name":"obj_Puzzle1Trigger",
+  "name":"obj_Solid",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_Statue",
-    "path":"sprites/spr_Statue/spr_Statue.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

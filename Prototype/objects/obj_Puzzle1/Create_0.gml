@@ -20,19 +20,19 @@ opt_btn_w = 300;
 opt_btn_h = 70;
 
 option_btns = [
-	{ btn_x: 800, btn_y: 400 },
-	{ btn_x: 800, btn_y: 475 },
-	{ btn_x: 800, btn_y: 550 },
-	{ btn_x: 800, btn_y: 625 },
+	{ x: 800, y: 400 },
+	{ x: 800, y: 475 },
+	{ x: 800, y: 550 },
+	{ x: 800, y: 625 },
 ];
 
-submit_btn = { btn_x: 1200, btn_y: 630, w: 200, h: 60 };
+submit_btn = { x: 1200, y: 630, w: 200, h: 60 };
 
-next_btn = { btn_x: 1200, btn_y: 630, w: 200, h: 60 };
+next_btn = { x: 1200, y: 630, w: 200, h: 60 };
 
 puzzle_solved = false;
 
-	
+
 
 
 

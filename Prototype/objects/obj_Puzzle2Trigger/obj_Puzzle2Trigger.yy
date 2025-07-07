@@ -30,10 +30,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"spr_Clue2",
-    "path":"sprites/spr_Clue2/spr_Clue2.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

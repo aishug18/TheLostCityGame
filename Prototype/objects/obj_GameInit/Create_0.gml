@@ -1,5 +1,5 @@
 // Set fullscreen
-//window_set_fullscreen(true);
+window_set_fullscreen(true);
 
 // Toggle fullscreen
 if (keyboard_check_pressed(vk_f11)) {
