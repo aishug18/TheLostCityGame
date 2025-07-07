@@ -6,6 +6,17 @@ draw_set_valign(fa_middle);
 draw_set_color(c_black);
 draw_text(960, 200, "Shadow Archive: Echoes of the Past");
 
+// Information about game
+var line_1 = "Welcome history hunters, to the epic time-traveling history game!";
+var line_2 = "This game is focused on teaching Mayan culture and history, so strap in, put on your thinking hats, and let's explore the past!";
+var line_3 = "Solve puzzles, navigate historical structures, discover artifacts, and document your findings in your precious journal.";
+var line_4 = "Click \"Start\" to play.";
+
+draw_text(960, 230, line_1);
+draw_text(960, 260, line_2);
+draw_text(960, 290, line_3);
+draw_text(960, 320, line_4);
+
 // Start button
 draw_set_color(c_white);
 draw_rectangle(button_start.x, button_start.y, button_start.x + button_start.w, button_start.y + button_start.h, false);

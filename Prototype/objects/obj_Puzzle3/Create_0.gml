@@ -108,13 +108,114 @@ draw_puzzle = function () {
 	if (puzzle_solved) {
 		// Draw victory message and continue button
 		draw_set_color(c_white);
-		draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
+		draw_text(250, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
 		
 		if(draw_continue_button(860, 520)) {
 			solve_puzzle();	// Only runs if clicked
 		}
 	}
 	else {
+		// Information
+		var line_1 = "Welcome to the final puzzle!";
+		
+		var line_2 = "This puzzle is based off of the Mayan calendar system, one of the";
+		var line_3 = "most sophisticated and advanced systems in history.";
+		
+		var line_4 = "The Mayans used three calendar systems: Long Count, Haab', and Tzolk'in.";
+		
+		var line_5 = "A day in the Gregorian calendar (our calendar), like July 23, 2019,";
+		var line_6 = "can be written using Long Count, Haab', and Tzolk'in.";
+		
+		var line_7 = "The goal of the puzzle is to align the wheel dials to match a";
+		var line_8 = "specific date.";
+		
+		var line_9 = "What's the date, you ask? Solve the riddle on the right";
+		var line_10 = "to find out!";
+		
+		var line_11 = "Use your journal and the information you recorded in it to";
+		var line_12 = "help decode the riddle.";
+		
+		var line_13 = "Navigate between wheels by using the up and down arrows. The";
+		var line_14 = "selected wheel is highlighted green.";
+		
+		var line_15 = "Turn each wheel left or right by using the left and right arrows.";
+		
+		var line_16 = "When you think you correctly aligned the glyphs, press Enter.";
+		
+		var line_17 = "Once you correctly align the wheel dials, you will unlock something!";
+		
+		draw_set_color(c_white);
+		draw_text(100, 140, line_1);
+		
+		draw_text(100, 180, line_2);
+		draw_text(100, 210, line_3);
+		
+		draw_text(100, 250, line_4);
+		
+		draw_text(100, 290, line_5);
+		draw_text(100, 320, line_6);
+		
+		draw_text(100, 360, line_7);
+		draw_text(100, 390, line_8);
+		
+		draw_text(100, 430, line_9);
+		draw_text(100, 460, line_10);
+		
+		draw_text(100, 500, line_11);
+		draw_text(100, 530, line_12);
+		
+		draw_text(100, 570, line_13);
+		draw_text(100, 600, line_14);
+		
+		draw_text(100, 640, line_15);
+		
+		draw_text(100, 680, line_16);
+		
+		draw_text(100, 720, line_17);
+		
+		// Riddle and cipher
+		draw_set_halign(fa_center);
+		draw_set_valign(fa_middle);
+		
+		var riddle_line = "RIDDLE";
+		var date = "13.0.0.0.0";
+		var riddle_line_1 = "Align the four Jaguars,";
+		var riddle_line_2 = "When the Sun was crowned Lord.";
+		var riddle_line_3 = "The eight Gods bore witness,";
+		var riddle_line_4 = "And maize flourished.";
+		
+		var clue = "CLUES";
+		
+		var clue_line_1 = "The first and third wheels are number wheels, where each glyph";
+		var clue_line_2 = "is a Mayan number."
+		var clue_line_3 = "The third wheel numbers go by 2 (1 = 2, 2 = 4, 3 = 6, etc.).";
+		var clue_line_4 = "The second wheel is the Tzolk'in date wheel.";
+		var clue_line_5 = "Ajaw, glyph #4, means \"Sun\" or \"Lord.\"";
+		var clue_line_6 = "The fourth wheel is the Haab' date wheel.";
+		var clue_line_7 = "The month Kumk'u, glyph #4 is often associated with maize.";
+		
+		draw_text(1570, 140, riddle_line);
+		
+		draw_text(1570, 180, date);
+		
+		draw_text(1570, 220, riddle_line_1);
+		draw_text(1570, 250, riddle_line_2);
+		draw_text(1570, 280, riddle_line_3);
+		draw_text(1570, 310, riddle_line_4);
+		
+		draw_text(1570, 370, clue);
+		
+		draw_text(1570, 410, clue_line_1);
+		draw_text(1570, 440, clue_line_2);
+		draw_text(1570, 470, clue_line_3);
+		draw_text(1570, 500, clue_line_4);
+		draw_text(1570, 530, clue_line_5);
+		draw_text(1570, 560, clue_line_6);
+		draw_text(1570, 590, clue_line_7);
+		
+		draw_set_halign(fa_left);
+		draw_set_valign(fa_top);
+		
 		// Draw wheels
 		if (instance_exists(wheels[0])) {	// Draw NumWheel1
 			draw_sprite_ext(spr_NumWheel1, 0, wheels[0].x, wheels[0].y, 1, 1, wheels[0].angle, c_white, 1);	// Draw the sprite normally, but rotate it.
@@ -128,6 +229,9 @@ draw_puzzle = function () {
 		if (instance_exists(wheels[3])) {	// Draw HaabWheel
 			draw_sprite_ext(spr_HaabWheel, 0, wheels[3].x, wheels[3].y, 1, 1, wheels[3].angle, c_white, 1);
 		}
+		
+		// Draw arrow/marker on top
+		draw_sprite(spr_Arrow, 0, 960, 200);
 		
 		// Draw highlight ring if this wheel is active
 		for (var i = 0; i < 4; i++) {

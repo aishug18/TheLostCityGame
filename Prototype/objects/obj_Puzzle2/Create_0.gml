@@ -95,14 +95,11 @@ draw_puzzle = function () {
 		var full_sprite = round_complete_sprites[current_round];
 		draw_sprite(full_sprite, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		
-		// Draw message
+		// Draw solve message
 		draw_set_color(c_white);
 		draw_text(750, 250, round_messages[current_round]);
 		
-		// Draw Next button
-		draw_rectangle(840, 730, 1090, 780, false);
-		draw_set_color(c_black);
-		draw_text(850, 750, "Click to go to next round");
+		draw_text(820, 750, "Click anywhere to go to the next round");
 		
 		if (mouse_check_button_pressed(mb_left)) {
 			if (current_round < total_rounds - 1) {	// More rounds to go
@@ -124,6 +121,33 @@ draw_puzzle = function () {
 		}
 	}
 	else {	// Draw puzzle
+		var line_1 = "Welcome to the next puzzle!";
+		
+		var line_2 = "The goal is to put together all of the broken";
+		var line_3 = "pieces to form an artifact, one that is important";
+		var line_4 = "to the Mayan culture.";
+		
+		var line_5 = "One piece is the \"anchor\" piece, meaning you";
+		var line_6 = "can't move it. Click and drag the other pieces to";
+		var line_7 = "move them, and place them around the anchor piece.";
+		
+		var line_8 = "Once you place all pieces in their correct";
+		var line_9 = "position, the artifact will be restored!";
+		
+		draw_set_color(c_white);
+		draw_text(100, 140, line_1);
+		
+		draw_text(100, 180, line_2);
+		draw_text(100, 210, line_3);
+		draw_text(100, 240, line_4);
+		
+		draw_text(100, 280, line_5);
+		draw_text(100, 310, line_6);
+		draw_text(100, 340, line_7);
+		
+		draw_text(100, 380, line_8);
+		draw_text(100, 410, line_9);
+
 		with (obj_Puzzle2Piece) {	// loop over every instance of obj_Puzzle2Piece
 			// Draw canvas
 			draw_set_color(make_color_rgb(30, 30, 30));

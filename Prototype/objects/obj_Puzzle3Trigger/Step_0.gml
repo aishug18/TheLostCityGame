@@ -9,7 +9,7 @@ if (in_range() && keyboard_check_pressed(vk_enter)) {
 		var puzzle = instance_create_layer(x, y, "Instances", obj_Puzzle3);
 		
 		// Pass in dynamic info
-		puzzle.victory_message = "You successfully solved the riddle and unlocked the vault!";
+		puzzle.victory_message = "You successfully solved the riddle and unlocked the vault! The date 13.0.0.0.0, or 4 Ajaw 8 Kumk'u, is the Mayan Creation Date, the start of the current Long Count cycle.";
 		puzzle.target_object = instance_nearest(x, y, obj_Puzzle3Door);	// or any object
 		
 		puzzle.trigger_action = function () {

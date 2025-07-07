@@ -1,8 +1,24 @@
 if (!puzzle_solved) {
+	// Basic information
+	draw_set_color(c_black);
+	var line_1 = "Welcome to your first puzzle! Puzzles in this game are aimed to teach you about Mayan culture and history. Solve a puzzle and you not only move on, but you get to learn about Mayan history.";
+	var line_2 = "You must solve each puzzle before moving on. After all, learning about the past is the best way to create a better present and future.";
+	var line_3 = "For this puzzle, you must answer questions about the Mayan number system. But wait, you don't know the Mayan number system!";
+	var line_4 = "That's what your journal is for. Open your journal and find the \"Mayan Number System\" page. Using this page, answer the questions correctly.";
+	var line_5 = "If you answer all of the questions right, your journal will get another page filled with all of the information you could possibly have about the Mayan number system.";
+	var line_6 = "Happy history-hunting!";
+	
+	draw_text(100, 50, line_1);
+	draw_text(100, 80, line_2);
+	draw_text(100, 110, line_3);
+	draw_text(100, 140, line_4);
+	draw_text(100, 170, line_5);
+	draw_text(100, 200, line_6);
+	
 	var question = question_data[current_question];
 
 	// Draw journal
-	draw_sprite(spr_JournalPage, 0, 100, 260);
+	draw_sprite(spr_JournalPage, 0, 100, 300);
 
 	// Draw question text
 	draw_text(800, 300, question.text);
