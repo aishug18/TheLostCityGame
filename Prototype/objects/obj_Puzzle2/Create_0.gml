@@ -5,15 +5,15 @@ total_rounds = 3;
 puzzle_finished = false;	// True if all 3 rounds are completed
 
 round_complete_sprites = [
-	spr_Object0,
-	spr_Object1,
-	spr_Object2
+	Pu2_C_Ex,
+	spr_Object1,	// replace with final explanation
+	Pu2_S_Ex
 ];
 
 round_messages = [
-	"You reassembled the sacred goblet of wisdom!",
-	"This object was used for human sacrifice rituals. Scary...",
-	"You've restored the crown of the great King!"
+	"",
+	"This is a Mayan pyramid, a place for worship and rituals.",
+	""
 ];
 
 // Spawns the correct pieces for each round
@@ -33,7 +33,8 @@ run_round = function(index) {
 			layout[i].sprite, 
 			layout[i].offset_x,
 			layout[i].offset_y,
-			layout[i].is_anchor);
+			layout[i].is_anchor,
+			layout[i].is_main_anchor);
 	}
 };
 
@@ -48,7 +49,7 @@ run_puzzle = function () {
 	
 	var anchor = noone;
 	with (obj_Puzzle2Piece) {
-	    if (is_anchor) {
+	    if (is_main_anchor) {
 	        anchor = id;
 	    }
 	}
@@ -99,7 +100,7 @@ draw_puzzle = function () {
 		draw_set_color(c_white);
 		draw_text(750, 250, round_messages[current_round]);
 		
-		draw_text(820, 750, "Click anywhere to go to the next round");
+		draw_text(1500, 750, "Click anywhere to go to the next round");
 		
 		if (mouse_check_button_pressed(mb_left)) {
 			if (current_round < total_rounds - 1) {	// More rounds to go
