@@ -1,5 +1,5 @@
 if (!puzzle_solved) {
-	// Basic information
+	// Basic information		DELETE
 	draw_set_color(c_black);
 	var line_1 = "Welcome to your first puzzle! Puzzles in this game are aimed to teach you about Mayan culture and history. Solve a puzzle and you not only move on, but you get to learn about Mayan history.";
 	var line_2 = "You must solve each puzzle before moving on. After all, learning about the past is the best way to create a better present and future.";
@@ -16,6 +16,9 @@ if (!puzzle_solved) {
 	draw_text(100, 200, line_6);
 	
 	var question = question_data[current_question];
+
+	//Draw Mayan Numbers Explanation Sprite
+	draw_sprite(TutPuzzleIntro, 0, 600, 0);
 
 	// Draw journal
 	draw_sprite(spr_JournalPage, 0, 100, 300);

@@ -111,7 +111,6 @@
     {"id":{"name":"spr_TzolkinWheel","path":"sprites/spr_TzolkinWheel/spr_TzolkinWheel.yy",},},
     {"id":{"name":"spr_Wall","path":"sprites/spr_Wall/spr_Wall.yy",},},
     {"id":{"name":"SubmitBtn","path":"sprites/SubmitBtn/SubmitBtn.yy",},},
-    {"id":{"name":"TutorialPuzzleInstructions","path":"sprites/TutorialPuzzleInstructions/TutorialPuzzleInstructions.yy",},},
     {"id":{"name":"TutorialPuzzleProblemBox","path":"sprites/TutorialPuzzleProblemBox/TutorialPuzzleProblemBox.yy",},},
     {"id":{"name":"TutPuzzleIntro","path":"sprites/TutPuzzleIntro/TutPuzzleIntro.yy",},},
   ],
