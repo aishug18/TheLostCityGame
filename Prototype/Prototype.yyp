@@ -115,6 +115,7 @@
     {"id":{"name":"TutPuzzle16","path":"sprites/TutPuzzle16/TutPuzzle16.yy",},},
     {"id":{"name":"TutPuzzle73","path":"sprites/TutPuzzle73/TutPuzzle73.yy",},},
     {"id":{"name":"TutPuzzleIntro","path":"sprites/TutPuzzleIntro/TutPuzzleIntro.yy",},},
+    {"id":{"name":"TutPuzzleKey","path":"sprites/TutPuzzleKey/TutPuzzleKey.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

@@ -29,9 +29,12 @@ if (!puzzle_solved) {
 
 	// Draw journal
 	draw_sprite(spr_JournalPage, 0, 100, 300);
-
-
-
+	
+	
+	
+	
+	//Draw KEY
+	draw_sprite(TutPuzzleKey, 0, 100, 300);
 	//Draw Questions and Problem Sprite
 	draw_sprite(TutorialPuzzleProblemBox, 0, 800, 10);
 

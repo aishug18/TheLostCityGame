@@ -2,13 +2,13 @@ current_question = 0;
 question_data = [
 	{
 		text: "What is the value of the following Mayan number?", //DELETE
-		//^REPLACE WITH
+		//^REPLACE WITH: TutPuzzle16
 		options: ["3", "6", "16", "9"],
 		correct_index: 2
 	},
 	{
 		text: "What is the Mayan symbol for the number 1?",//DELETE
-		//^REPLACE WITH
+		//^REPLACE WITH: TutPuzzle73
 		options: ["185", "20", "18", "73"],
 		correct_index: 3
 	},
