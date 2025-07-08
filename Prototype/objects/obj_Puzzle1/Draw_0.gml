@@ -1,5 +1,5 @@
 if (!puzzle_solved) {
-	// Basic information		DELETE
+	// Basic information		DELETE THIS EXPLANATION
 	draw_set_color(c_black);
 	var line_1 = "Welcome to your first puzzle! Puzzles in this game are aimed to teach you about Mayan culture and history. Solve a puzzle and you not only move on, but you get to learn about Mayan history.";
 	var line_2 = "You must solve each puzzle before moving on. After all, learning about the past is the best way to create a better present and future.";
@@ -17,13 +17,27 @@ if (!puzzle_solved) {
 	
 	var question = question_data[current_question];
 
+
+
 	//Draw Mayan Numbers Explanation Sprite
-	draw_sprite(TutPuzzleIntro, 0, 600, 0);
+	//This should be the first thing to appear on the screen after the player
+	//picks up the journal
+	//draw_sprite(TutPuzzleIntro, 0, 600, 0);
+
+
+
 
 	// Draw journal
 	draw_sprite(spr_JournalPage, 0, 100, 300);
 
-	// Draw question text
+
+
+	//Draw Questions and Problem Sprite
+	draw_sprite(TutorialPuzzleProblemBox, 0, 800, 10);
+
+
+
+	// Draw question text	DELETE?
 	draw_text(800, 300, question.text);
 
 	// Draw options
@@ -37,24 +51,34 @@ if (!puzzle_solved) {
 		draw_text(option_btns[i].x + 10, option_btns[i].y + 10, question.options[i]);
 	}
 
-	// Draw submit button
+	// Draw submit button	
 	if (selected_index != -1 && !answered_correct) {
 	    draw_set_color(c_white);
 		draw_rectangle(submit_btn.x, submit_btn.y, submit_btn.x + submit_btn.w, submit_btn.y + submit_btn.h, false);
 		draw_set_color(c_black);
 	    draw_text(submit_btn.x + 10, submit_btn.y + 10, "Submit");
+		//DELETE? ^
+		
+		
+		//Draw sprite Submit btn
+		draw_sprite(SubmitBtn, 0,1500, 900);
 	}
 
 	// Feedback
 	if (answered_correct) {
 		draw_set_color(c_black);
-	    draw_text(1200, 500, "Correct!");
+	    draw_text(1200, 500, "Correct!");///Show next to the answer
     
 	    if (show_next_button) {
 			draw_set_color(c_white);
 	        draw_rectangle(next_btn.x, next_btn.y, next_btn.x + next_btn.w, next_btn.y + next_btn.h, false);
 			draw_set_color(c_black);
 	        draw_text(next_btn.x + 10, next_btn.y + 10, "Next");
+			//DELETE?^^^
+			
+			//Draw Next Sprite
+			draw_sprite(NextBtn, 0,1500, 900);
+			
 	    }
 	}
 	else if (selected_index != -1 && mouse_check_button_pressed(mb_left) && 

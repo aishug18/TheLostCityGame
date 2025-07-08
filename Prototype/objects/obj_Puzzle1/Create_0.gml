@@ -1,13 +1,15 @@
 current_question = 0;
 question_data = [
 	{
-		text: "What is the value of the following Mayan number?",
-		options: ["3", "6", "12", "9"],
+		text: "What is the value of the following Mayan number?", //DELETE
+		//^REPLACE WITH
+		options: ["3", "6", "16", "9"],
 		correct_index: 2
 	},
 	{
-		text: "What is the Mayan symbol for the number 1?",
-		options: ["2 circles and 1 bar", "1 bar", "3 circles and 1 bar", "1 circle"],
+		text: "What is the Mayan symbol for the number 1?",//DELETE
+		//^REPLACE WITH
+		options: ["185", "20", "18", "73"],
 		correct_index: 3
 	},
 ];
