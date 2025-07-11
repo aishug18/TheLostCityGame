@@ -32,12 +32,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_HaabWheel",
-    "path":"sprites/spr_HaabWheel/spr_HaabWheel.yy",
+    "name":"Wheel_H2",
+    "path":"sprites/Wheel_H2/Wheel_H2.yy",
   },
   "spriteMaskId":{
-    "name":"spr_HaabWheel",
-    "path":"sprites/spr_HaabWheel/spr_HaabWheel.yy",
+    "name":"Wheel_H2",
+    "path":"sprites/Wheel_H2/Wheel_H2.yy",
   },
   "visible":false,
 }

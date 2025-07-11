@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Journal",
-    "path":"sprites/spr_Journal/spr_Journal.yy",
+    "name":"Journal_Icon",
+    "path":"sprites/Journal_Icon/Journal_Icon.yy",
   },
   "spriteMaskId":null,
   "visible":true,

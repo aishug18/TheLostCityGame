@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_NumWheel2",
-    "path":"sprites/spr_NumWheel2/spr_NumWheel2.yy",
+    "name":"Wheel_H1",
+    "path":"sprites/Wheel_H1/Wheel_H1.yy",
   },
   "spriteMaskId":null,
   "visible":false,

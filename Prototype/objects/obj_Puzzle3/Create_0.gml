@@ -212,16 +212,16 @@ draw_puzzle = function () {
 		
 		// Draw wheels
 		if (instance_exists(wheels[0])) {	// Draw NumWheel1
-			draw_sprite_ext(spr_NumWheel1, 0, wheels[0].x, wheels[0].y, 1, 1, wheels[0].angle, c_white, 1);	// Draw the sprite normally, but rotate it.
+			draw_sprite_ext(Wheel_T1, 0, wheels[0].x, wheels[0].y, 1, 1, wheels[0].angle, c_white, 1);	// Draw the sprite normally, but rotate it.
 		}
 		if (instance_exists(wheels[1])) {	// Draw TzolkinWheel
-			draw_sprite_ext(spr_TzolkinWheel, 0, wheels[1].x, wheels[1].y, 1, 1, wheels[1].angle, c_white, 1);
+			draw_sprite_ext(Wheel_T2, 0, wheels[1].x, wheels[1].y, 1, 1, wheels[1].angle, c_white, 1);
 		}
 		if (instance_exists(wheels[2])) {	// Draw NumWheel2
-			draw_sprite_ext(spr_NumWheel2, 0, wheels[2].x, wheels[2].y, 1, 1, wheels[2].angle, c_white, 1);
+			draw_sprite_ext(Wheel_H1, 0, wheels[2].x, wheels[2].y, 1, 1, wheels[2].angle, c_white, 1);
 		}
 		if (instance_exists(wheels[3])) {	// Draw HaabWheel
-			draw_sprite_ext(spr_HaabWheel, 0, wheels[3].x, wheels[3].y, 1, 1, wheels[3].angle, c_white, 1);
+			draw_sprite_ext(Wheel_H2, 0, wheels[3].x, wheels[3].y, 1, 1, wheels[3].angle, c_white, 1);
 		}
 		
 		// Draw arrow/marker on top
