@@ -107,6 +107,7 @@
     {"id":{"name":"Pu2_S_P5","path":"sprites/Pu2_S_P5/Pu2_S_P5.yy",},},
     {"id":{"name":"Pu2_S_P6","path":"sprites/Pu2_S_P6/Pu2_S_P6.yy",},},
     {"id":{"name":"Pu2_S_P7","path":"sprites/Pu2_S_P7/Pu2_S_P7.yy",},},
+    {"id":{"name":"Room_Portal_spr","path":"sprites/Room_Portal_spr/Room_Portal_spr.yy",},},
     {"id":{"name":"spr_Door","path":"sprites/spr_Door/spr_Door.yy",},},
     {"id":{"name":"spr_Player","path":"sprites/spr_Player/spr_Player.yy",},},
     {"id":{"name":"spr_Wall","path":"sprites/spr_Wall/spr_Wall.yy",},},
