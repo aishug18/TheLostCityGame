@@ -6,15 +6,10 @@ puzzle_finished = false;	// True if all 3 rounds are completed
 
 round_complete_sprites = [
 	Pu2_C_Ex,
-	spr_Object1,	// replace with final explanation
+	Pu2_P_Ex,
 	Pu2_S_Ex
 ];
 
-round_messages = [
-	"",
-	"This is a Mayan pyramid, a place for worship and rituals.",
-	""
-];
 
 // Spawns the correct pieces for each round
 run_round = function(index) {
@@ -95,10 +90,6 @@ draw_puzzle = function () {
 		// Draw the completed object in the center
 		var full_sprite = round_complete_sprites[current_round];
 		draw_sprite(full_sprite, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
-		
-		// Draw solve message
-		draw_set_color(c_white);
-		draw_text(750, 250, round_messages[current_round]);
 		
 		draw_text(1500, 750, "Click anywhere to go to the next round");
 		

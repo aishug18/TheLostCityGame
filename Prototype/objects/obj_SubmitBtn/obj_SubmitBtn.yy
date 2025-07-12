@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Object1",
+  "%Name":"obj_SubmitBtn",
   "eventList":[],
   "managed":true,
-  "name":"obj_Object1",
+  "name":"obj_SubmitBtn",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Object1",
-    "path":"sprites/spr_Object1/spr_Object1.yy",
+    "name":"SubmitBtn",
+    "path":"sprites/SubmitBtn/SubmitBtn.yy",
   },
   "spriteMaskId":null,
   "visible":true,
