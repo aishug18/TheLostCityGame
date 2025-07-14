@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_TzolkinWheel",
-    "path":"sprites/spr_TzolkinWheel/spr_TzolkinWheel.yy",
+    "name":"Wheel_T2",
+    "path":"sprites/Wheel_T2/Wheel_T2.yy",
   },
   "spriteMaskId":null,
   "visible":false,

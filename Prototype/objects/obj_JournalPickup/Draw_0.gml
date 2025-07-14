@@ -8,7 +8,7 @@ if(in_range() && !hide_sprite) {
 	var message = "Press E to pick up the journal";
 	draw_dialogue_box(message);
 }
-else if (journal_acquired) {
+else if (journal_acquired && !tut_intro) {
 
 	var line_1 = "You've acquired a journal! This journal is your life. Don't lose it! It contains all the information you need to educate yourself about Mayan culture and solve Mayan-based puzzles.";
 	var line_2 = "Right now, your journal only has one page with content. The rest of the pages are empty. As you play along, you will discover artifacts that will teach you Mayan history and culture.";
@@ -16,11 +16,9 @@ else if (journal_acquired) {
 	var line_4 = "You can access your journal by clicking on the journal icon, and you can flip through the pages by clicking the arrow buttons.";
 	var line_5 = "Click anywhere to move on.";
 	
-	draw_text(200, 100, line_1);
-	draw_text(200, 130, line_2);
-	draw_text(200, 160, line_3);
-	draw_text(200, 190, line_4);
-	draw_text(200, 230, line_5);
-
-	
+	draw_text(50, 100, line_1);
+	draw_text(50, 130, line_2);
+	draw_text(50, 160, line_3);
+	draw_text(50, 190, line_4);
+	draw_text(50, 230, line_5);
 }

@@ -6,15 +6,10 @@ puzzle_finished = false;	// True if all 3 rounds are completed
 
 round_complete_sprites = [
 	Pu2_C_Ex,
-	spr_Object1,	// replace with final explanation
+	Pu2_P_Ex,
 	Pu2_S_Ex
 ];
 
-round_messages = [
-	"",
-	"This is a Mayan pyramid, a place for worship and rituals.",
-	""
-];
 
 // Spawns the correct pieces for each round
 run_round = function(index) {
@@ -96,10 +91,6 @@ draw_puzzle = function () {
 		var full_sprite = round_complete_sprites[current_round];
 		draw_sprite(full_sprite, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		
-		// Draw solve message
-		draw_set_color(c_white);
-		draw_text(750, 250, round_messages[current_round]);
-		
 		draw_text(1500, 750, "Click anywhere to go to the next round");
 		
 		if (mouse_check_button_pressed(mb_left)) {
@@ -153,10 +144,6 @@ draw_puzzle = function () {
 			// Draw canvas
 			draw_set_color(make_color_rgb(30, 30, 30));
 			draw_rectangle(box_left, box_top, box_right, box_bottom, false); // filled
-			draw_set_alpha(0.2);
-			draw_set_color(c_white);
-			draw_rectangle(box_left, box_top, box_right, box_bottom, true); // outline
-			draw_set_alpha(1);
 		}
 		
 		with (obj_Puzzle2Piece) {
@@ -175,10 +162,8 @@ solve_puzzle = function() {
 		current_puzzle = noone;
 	}
 	
-	// Trigger something, like a door to open
-	if (!is_undefined(trigger_action)) {
-		trigger_action();	// run the passed-in function
-	}
+	// Spawn portal
+	instance_create_layer(672, 480, "Instances", obj_Portal);
 	
 	// Destroy the puzzle after it's solved
 	instance_destroy();

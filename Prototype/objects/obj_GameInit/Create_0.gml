@@ -12,4 +12,7 @@ global.puzzle_active = false;
 // Pause flag
 global.game_paused = false;
 
+// start background music with looping
+//audio_play_sound(* sound file asset *, 1, true);	// true = looping
+
 // Any other startup settings

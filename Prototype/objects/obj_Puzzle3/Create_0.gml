@@ -6,29 +6,29 @@ active_wheel_index = 0;
 wheels = [];
 
 // Place wheels in wheels array
-var wheel_1 = instance_create_layer(center_x, center_y, "Instances", obj_NumWheel1);
+var wheel_1 = instance_create_layer(460, 545, "Instances", obj_NumWheel1);
 wheel_1.index = 0;	// Identify wheel
 wheel_1.active = true;	// The first wheel is selected by default
 array_push(wheels, wheel_1);
 
-var wheel_2 = instance_create_layer(center_x, center_y, "Instances", obj_TzolkinWheel);
+var wheel_2 = instance_create_layer(460, 545, "Instances", obj_TzolkinWheel);
 wheel_2.index = 1;
 wheel_2.active = false;	// Other wheels are not selected
 array_push(wheels, wheel_2);
 
-var wheel_3 = instance_create_layer(center_x, center_y, "Instances", obj_NumWheel2);
+var wheel_3 = instance_create_layer(460, 550, "Instances", obj_NumWheel2);
 wheel_3.index = 2;
 wheel_3.active = false;
 array_push(wheels, wheel_3);
 
-var wheel_4 = instance_create_layer(center_x, center_y, "Instances", obj_HaabWheel);
+var wheel_4 = instance_create_layer(460, 550, "Instances", obj_HaabWheel);
 wheel_4.index = 3;
 wheel_4.active = false;
 array_push(wheels, wheel_4);
 
 // State flags
 puzzle_solved = false;
-solution = [3, 3, 3, 3];	// Answer: 4 Ajaw 8 Kumk'u. are you kidding why are they all 3 :(
+solution = [7, 3, 3, 0];	// Answer: 4 Ajaw 8 Kumk'u
 
 
 // Run puzzle
@@ -111,7 +111,7 @@ draw_puzzle = function () {
 		draw_text(250, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
 		
 		if(draw_continue_button(860, 520)) {
-			solve_puzzle();	// Only runs if clicked
+			solve_puzzle();
 		}
 	}
 	else {
@@ -173,59 +173,25 @@ draw_puzzle = function () {
 		
 		draw_text(100, 720, line_17);
 		
-		// Riddle and cipher
-		var riddle_line = "RIDDLE";
-		var date = "13.0.0.0.0";
-		var riddle_line_1 = "Align the four Jaguars,";
-		var riddle_line_2 = "When the Sun was crowned Lord.";
-		var riddle_line_3 = "The eight Gods bore witness,";
-		var riddle_line_4 = "And maize flourished.";
-		
-		var clue = "CLUES";
-		
-		var clue_line_1 = "The first and third wheels are number wheels, where each glyph";
-		var clue_line_2 = "is a Mayan number."
-		var clue_line_3 = "The third wheel numbers go by 2 (1 = 2, 2 = 4, 3 = 6, etc.).";
-		var clue_line_4 = "The second wheel is the Tzolk'in date wheel.";
-		var clue_line_5 = "Ajaw, glyph #4, means \"Sun\" or \"Lord.\"";
-		var clue_line_6 = "The fourth wheel is the Haab' date wheel.";
-		var clue_line_7 = "The month Kumk'u, glyph #4 is often associated with maize.";
-		
-		draw_text(1300, 140, riddle_line);
-		
-		draw_text(1300, 180, date);
-		
-		draw_text(1300, 220, riddle_line_1);
-		draw_text(1300, 250, riddle_line_2);
-		draw_text(1300, 280, riddle_line_3);
-		draw_text(1300, 310, riddle_line_4);
-		
-		draw_text(1300, 370, clue);
-		
-		draw_text(1300, 410, clue_line_1);
-		draw_text(1300, 440, clue_line_2);
-		draw_text(1300, 470, clue_line_3);
-		draw_text(1300, 500, clue_line_4);
-		draw_text(1300, 530, clue_line_5);
-		draw_text(1300, 560, clue_line_6);
-		draw_text(1300, 590, clue_line_7);
-		
 		// Draw wheels
 		if (instance_exists(wheels[0])) {	// Draw NumWheel1
-			draw_sprite_ext(spr_NumWheel1, 0, wheels[0].x, wheels[0].y, 1, 1, wheels[0].angle, c_white, 1);	// Draw the sprite normally, but rotate it.
+			draw_sprite_ext(Wheel_T1, 0, wheels[0].x, wheels[0].y, 1, 1, wheels[0].angle, c_white, 1);	// Draw the sprite normally, but rotate it.
 		}
 		if (instance_exists(wheels[1])) {	// Draw TzolkinWheel
-			draw_sprite_ext(spr_TzolkinWheel, 0, wheels[1].x, wheels[1].y, 1, 1, wheels[1].angle, c_white, 1);
+			draw_sprite_ext(Wheel_T2, 0, wheels[1].x, wheels[1].y, 1, 1, wheels[1].angle, c_white, 1);
 		}
 		if (instance_exists(wheels[2])) {	// Draw NumWheel2
-			draw_sprite_ext(spr_NumWheel2, 0, wheels[2].x, wheels[2].y, 1, 1, wheels[2].angle, c_white, 1);
+			draw_sprite_ext(Wheel_H1, 0, wheels[2].x, wheels[2].y, 1, 1, wheels[2].angle, c_white, 1);
 		}
 		if (instance_exists(wheels[3])) {	// Draw HaabWheel
-			draw_sprite_ext(spr_HaabWheel, 0, wheels[3].x, wheels[3].y, 1, 1, wheels[3].angle, c_white, 1);
+			draw_sprite_ext(Wheel_H2, 0, wheels[3].x, wheels[3].y, 1, 1, wheels[3].angle, c_white, 1);
 		}
 		
 		// Draw arrow/marker on top
-		draw_sprite(spr_Arrow, 0, 960, 200);
+		draw_sprite(Wheel_marker, 0, 460, 175);
+		
+		// Draw riddle
+		draw_sprite(Wheel_riddle, 0, 1360, 260);
 		
 		// Draw highlight ring if this wheel is active
 		for (var i = 0; i < 4; i++) {
@@ -233,9 +199,7 @@ draw_puzzle = function () {
 			if (instance_exists(w)) {
 				if(w.active) {
 					draw_set_color(c_lime);
-					draw_set_alpha(0.3);
-					draw_circle(w.x, w.y, w.sprite_width / 2 + 4, false);
-					draw_set_alpha(1);
+					draw_circle(w.x, w.y, w.sprite_width / 2 - 25, true);
 				}
 			}
 		}
@@ -250,10 +214,9 @@ solve_puzzle = function() {
 	with(obj_PuzzleManager) {
 		current_puzzle = noone;
 	}
-		
-	if (!is_undefined(trigger_action)) {
-		trigger_action();	// run the passed-in function
-	}
+	
+	// Spawn portal
+	instance_create_layer(1536, 128, "Instances", obj_Portal);
 
 	// Destroy the puzzle after it's solved
 	instance_destroy();
