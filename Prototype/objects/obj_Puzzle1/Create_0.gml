@@ -45,7 +45,7 @@ run_puzzle = function () {
 	// Check if option is selected
 	for (var i = 0; i < 4; i++) {
 	    if (mouse_check_button_pressed(mb_left) &&
-	        point_in_rectangle(mouse_x, mouse_y, option_btns[i].x, option_btns[i].y, option_btns[i].x + opt_btn_w, option_btns[i].y + opt_btn_h)) {
+	        point_in_rectangle(mouse_to_gui()[0], mouse_to_gui()[1], option_btns[i].x, option_btns[i].y, option_btns[i].x + opt_btn_w, option_btns[i].y + opt_btn_h)) {
 	        selected_index = i;
 	    }
 	}
@@ -53,7 +53,7 @@ run_puzzle = function () {
 	// Next button
 	if (answered_correct && show_next_button &&
 			mouse_check_button_pressed(mb_left) &&
-			point_in_rectangle(mouse_x, mouse_y, next_btn.x, next_btn.y, next_btn.x + sprite_get_width(next_btn.sprite), next_btn.y + sprite_get_height(next_btn.sprite))) {
+			point_in_rectangle(mouse_to_gui()[0], mouse_to_gui()[1], next_btn.x, next_btn.y, next_btn.x + sprite_get_width(next_btn.sprite), next_btn.y + sprite_get_height(next_btn.sprite))) {
 	
 		current_question++;
 	    selected_index = -1;
@@ -71,20 +71,9 @@ draw_puzzle = function () {
 	if (!puzzle_solved) {
 		var question = question_data[current_question];
 
-
-
-		//Draw Mayan Numbers Explanation Sprite
-		//This should be the first thing to appear on the screen after the player
-		//picks up the journal
-		//draw_sprite(TutPuzzleIntro, 0, 600, 0);
-
 		// Draw problem box with question
 		draw_sprite(TutorialPuzzleProblemBox, 0, 520, 540);
 		
-		// Draw journal page with key
-		draw_sprite(Journal_spr, 0, 1500, 520);
-		draw_sprite(TutPuzzleKey, 0, 1520, 550);
-
 		// Draw question sprite
 		draw_sprite(question.sprite, 0, 520, 215);
 
@@ -115,7 +104,7 @@ draw_puzzle = function () {
 		    }
 		}
 		else if (selected_index != -1 && mouse_check_button_pressed(mb_left) && 
-					point_in_rectangle(mouse_x, mouse_y, submit_btn.x, submit_btn.y, submit_btn.x + sprite_get_width(submit_btn.sprite), submit_btn.y + sprite_get_height(submit_btn.sprite))) {
+					point_in_rectangle(mouse_to_gui()[0], mouse_to_gui()[1], submit_btn.x, submit_btn.y, submit_btn.x + sprite_get_width(submit_btn.sprite), submit_btn.y + sprite_get_height(submit_btn.sprite))) {
     
 			// Submit clicked
 		    if (selected_index == question_data[current_question].correct_index) {
@@ -145,10 +134,9 @@ solve_puzzle = function() {
 	with(obj_PuzzleManager) {
 		current_puzzle = noone;
 	}
-	// Trigger something, like a door to open
-	if (!is_undefined(trigger_action)) {
-		trigger_action();	// run the passed-in function
-	}
+	
+	// Spawn portal
+	instance_create_layer(1152, 448, "Instances", obj_Portal);
 	
 	// Destroy the puzzle after it's solved
 	instance_destroy();

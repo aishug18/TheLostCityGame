@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Journal_Icon",
-    "path":"sprites/Journal_Icon/Journal_Icon.yy",
+    "name":"spr_JournalIcon",
+    "path":"sprites/spr_JournalIcon/spr_JournalIcon.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -173,26 +173,6 @@ draw_puzzle = function () {
 		
 		draw_text(100, 720, line_17);
 		
-		var clue = "CLUES";
-		
-		var clue_line_1 = "The first and third wheels are number wheels, where each glyph";
-		var clue_line_2 = "is a Mayan number."
-		var clue_line_3 = "The third wheel numbers go by 2 (1 = 2, 2 = 4, 3 = 6, etc.).";
-		var clue_line_4 = "The second wheel is the Tzolk'in date wheel.";
-		var clue_line_5 = "Ajaw, glyph #4, means \"Sun\" or \"Lord.\"";
-		var clue_line_6 = "The fourth wheel is the Haab' date wheel.";
-		var clue_line_7 = "The month Kumk'u, glyph #4 is often associated with maize.";
-		
-		draw_text(1300, 370, clue);
-		
-		draw_text(1300, 410, clue_line_1);
-		draw_text(1300, 440, clue_line_2);
-		draw_text(1300, 470, clue_line_3);
-		draw_text(1300, 500, clue_line_4);
-		draw_text(1300, 530, clue_line_5);
-		draw_text(1300, 560, clue_line_6);
-		draw_text(1300, 590, clue_line_7);
-		
 		// Draw wheels
 		if (instance_exists(wheels[0])) {	// Draw NumWheel1
 			draw_sprite_ext(Wheel_T1, 0, wheels[0].x, wheels[0].y, 1, 1, wheels[0].angle, c_white, 1);	// Draw the sprite normally, but rotate it.
@@ -234,10 +214,9 @@ solve_puzzle = function() {
 	with(obj_PuzzleManager) {
 		current_puzzle = noone;
 	}
-		
-	if (!is_undefined(trigger_action)) {
-		trigger_action();	// run the passed-in function
-	}
+	
+	// Spawn portal
+	instance_create_layer(1536, 128, "Instances", obj_Portal);
 
 	// Destroy the puzzle after it's solved
 	instance_destroy();

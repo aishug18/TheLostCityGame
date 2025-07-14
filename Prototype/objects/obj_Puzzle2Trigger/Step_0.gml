@@ -10,17 +10,6 @@ if (in_range() && keyboard_check_pressed(vk_enter)) {
 		
 		// Pass in dynamic info
 		puzzle.victory_message = "You successfully restored all artifacts and opened the door!";
-		puzzle.target_object = instance_nearest(x, y, obj_Puzzle2Door);	// or any object
-		
-		puzzle.trigger_action = function () {
-			// What happens when the puzzle is complete
-			with (other.target_object) {
-				open();	// This could a be a function on a door, NPC, etc.
-			}
-			
-			// Destroy the trigger after puzzle completion
-			instance_destroy(inst_3F44615E);
-		};
 		
 		// Store it in the puzzle manager
 		with (obj_PuzzleManager) {

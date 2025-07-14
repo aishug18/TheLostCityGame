@@ -144,10 +144,6 @@ draw_puzzle = function () {
 			// Draw canvas
 			draw_set_color(make_color_rgb(30, 30, 30));
 			draw_rectangle(box_left, box_top, box_right, box_bottom, false); // filled
-			draw_set_alpha(0.2);
-			draw_set_color(c_white);
-			draw_rectangle(box_left, box_top, box_right, box_bottom, true); // outline
-			draw_set_alpha(1);
 		}
 		
 		with (obj_Puzzle2Piece) {
@@ -166,10 +162,8 @@ solve_puzzle = function() {
 		current_puzzle = noone;
 	}
 	
-	// Trigger something, like a door to open
-	if (!is_undefined(trigger_action)) {
-		trigger_action();	// run the passed-in function
-	}
+	// Spawn portal
+	instance_create_layer(672, 480, "Instances", obj_Portal);
 	
 	// Destroy the puzzle after it's solved
 	instance_destroy();
