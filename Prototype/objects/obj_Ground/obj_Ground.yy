@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Wall",
-    "path":"sprites/spr_Wall/spr_Wall.yy",
+    "name":"spr_WallGrass",
+    "path":"sprites/spr_WallGrass/spr_WallGrass.yy",
   },
   "spriteMaskId":null,
   "visible":true,

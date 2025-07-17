@@ -16,7 +16,7 @@ move_direction = rightKey - leftKey;
 
 x_speed = move_direction * move_speed;
 
-if (place_meeting(x + x_speed, y, obj_Ground)) {
+if (place_meeting(x + x_speed, y, obj_Solid)) {
 	x_speed = 0;	// collision, so stop moving
 }
 
@@ -35,12 +35,12 @@ if (y_speed > 8) {
 	y_speed = 8;
 }
 
-if (place_meeting(x, y + y_speed, obj_Ground)) {
+if (place_meeting(x, y + y_speed, obj_Solid)) {
 	y_speed = 0;	// collision, so stop moving
 }
 
 // Set if on ground
-if (y_speed >= 0 && place_meeting(x, y + 1, obj_Ground)) {
+if (y_speed >= 0 && place_meeting(x, y + 1, obj_Solid)) {
 	on_ground = true;
 }
 else {
