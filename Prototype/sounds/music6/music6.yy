@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"music2",
+  "%Name":"music6",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":2.384626,
-  "name":"music2",
+  "duration":133.35617,
+  "name":"music6",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"music2.wav",
+  "soundFile":"music6.mp3",
   "type":0,
   "volume":1.0,
 }

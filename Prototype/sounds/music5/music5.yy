@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.0,
+  "duration":395.62448,
   "name":"music5",
   "parent":{
     "name":"Sounds",
