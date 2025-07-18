@@ -1,6 +1,4 @@
-// Enter puzzle 3 if player is close to the trigger object and presses the Enter key.
-
-if (in_range() && keyboard_check_pressed(vk_enter)) {
+if (place_meeting(x, y, obj_Player)) {
 	if (!global.puzzle_active) {
 		// Start puzzle
 		global.puzzle_active = true;
@@ -16,4 +14,6 @@ if (in_range() && keyboard_check_pressed(vk_enter)) {
 			current_puzzle = puzzle;
 		}
 	}
+	
+	instance_destroy();
 }

@@ -1,7 +1,7 @@
 if (global.puzzle_active) exit;	// in puzzle mode
 if (global.game_paused) exit;	// paused game
 if (obj_JournalManager.journal_open) exit;	// opened journal
-if (instance_exists(obj_JournalPickup) && obj_JournalPickup.tut_intro) exit;	// tutorial explanation, so stop moving
+if (global.prop) exit;	// prop description, so stop moving
 
 // ---- Input ----
 

@@ -1,4 +1,4 @@
-if (in_range() && keyboard_check_pressed(ord("E"))) {
+if (place_meeting(x, y, obj_Player)) {
 	journal_acquired = true;
 	hide_sprite = true;
 	
@@ -8,9 +8,10 @@ if (in_range() && keyboard_check_pressed(ord("E"))) {
 
 // Show Mayan number system intro
 if (journal_acquired && mouse_check_button_pressed(mb_left)) {
-	tut_intro = true;
+	alarm[0] = 0.1 * game_get_speed(gamespeed_fps);
 }
 
-if (journal_acquired && keyboard_check_pressed(vk_enter) && tut_intro) {
+if (journal_acquired && mouse_check_button_pressed(mb_left) && global.prop) {
+	global.prop = false;
 	instance_destroy();
 }

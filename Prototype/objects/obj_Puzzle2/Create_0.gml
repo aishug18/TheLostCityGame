@@ -65,18 +65,6 @@ run_puzzle = function () {
 	if (all_correct) {
 		puzzle_solved = true;
 	}
-	
-	// Check if Escape is pressed to exit puzzle
-	if (keyboard_check_pressed(vk_escape)) {
-		global.puzzle_active = false;
-	
-		with(obj_PuzzleManager) {
-			current_puzzle = noone;
-		}
-		
-		// Destroy the puzzle
-		instance_destroy();
-	}
 };
 
 // Draw puzzle

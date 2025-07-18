@@ -1,12 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Win",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"obj_Instructions",
+  "eventList":[],
   "managed":true,
-  "name":"obj_Win",
+  "name":"obj_Instructions",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -30,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"Instr1_spr",
+    "path":"sprites/Instr1_spr/Instr1_spr.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

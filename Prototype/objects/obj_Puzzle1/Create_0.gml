@@ -42,10 +42,13 @@ run_puzzle = function () {
 		return;
 	}
 	
+	var mx = device_mouse_x_to_gui(0);
+	var my = device_mouse_y_to_gui(0);
+	
 	// Check if option is selected
 	for (var i = 0; i < 4; i++) {
 	    if (mouse_check_button_pressed(mb_left) &&
-	        point_in_rectangle(mouse_to_gui()[0], mouse_to_gui()[1], option_btns[i].x, option_btns[i].y, option_btns[i].x + opt_btn_w, option_btns[i].y + opt_btn_h)) {
+	        point_in_rectangle(mx, my, option_btns[i].x, option_btns[i].y, option_btns[i].x + opt_btn_w, option_btns[i].y + opt_btn_h)) {
 	        selected_index = i;
 	    }
 	}
@@ -53,7 +56,7 @@ run_puzzle = function () {
 	// Next button
 	if (answered_correct && show_next_button &&
 			mouse_check_button_pressed(mb_left) &&
-			point_in_rectangle(mouse_to_gui()[0], mouse_to_gui()[1], next_btn.x, next_btn.y, next_btn.x + sprite_get_width(next_btn.sprite), next_btn.y + sprite_get_height(next_btn.sprite))) {
+			point_in_rectangle(mx, my, next_btn.x, next_btn.y, next_btn.x + sprite_get_width(next_btn.sprite), next_btn.y + sprite_get_height(next_btn.sprite))) {
 	
 		current_question++;
 	    selected_index = -1;
@@ -68,6 +71,9 @@ run_puzzle = function () {
 
 // Draw puzzle
 draw_puzzle = function () {
+	var mx = device_mouse_x_to_gui(0);
+	var my = device_mouse_y_to_gui(0);
+	
 	if (!puzzle_solved) {
 		var question = question_data[current_question];
 
@@ -104,7 +110,7 @@ draw_puzzle = function () {
 		    }
 		}
 		else if (selected_index != -1 && mouse_check_button_pressed(mb_left) && 
-					point_in_rectangle(mouse_to_gui()[0], mouse_to_gui()[1], submit_btn.x, submit_btn.y, submit_btn.x + sprite_get_width(submit_btn.sprite), submit_btn.y + sprite_get_height(submit_btn.sprite))) {
+					point_in_rectangle(mx, my, submit_btn.x, submit_btn.y, submit_btn.x + sprite_get_width(submit_btn.sprite), submit_btn.y + sprite_get_height(submit_btn.sprite))) {
     
 			// Submit clicked
 		    if (selected_index == question_data[current_question].correct_index) {

@@ -1,5 +1,5 @@
 // Toggle journal with Q
-if (keyboard_check_pressed(ord("Q")) && is_visible) {
+if (keyboard_check_pressed(ord("E")) && is_visible) {
 	with (obj_JournalManager) {
 		journal_open = !journal_open;
 	}
@@ -15,5 +15,3 @@ if (mouse_check_button_pressed(mb_left) && is_visible) {
 		}
 	}
 }
-
-// choose one or the other to open journal
