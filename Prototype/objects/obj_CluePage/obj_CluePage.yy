@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"TutPuzzleKey",
-    "path":"sprites/TutPuzzleKey/TutPuzzleKey.yy",
+    "name":"Prop4_desc",
+    "path":"sprites/Prop4_desc/Prop4_desc.yy",
   },
   "spriteMaskId":null,
   "visible":true,
