@@ -4,7 +4,7 @@ x_speed = 0;
 y_speed = 0;
 
 grav = 0.4;
-jump_speed = -8;
+jump_speed = -9;
 on_ground = true;
 
 // Sprites

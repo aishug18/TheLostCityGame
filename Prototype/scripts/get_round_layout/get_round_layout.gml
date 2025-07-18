@@ -9,7 +9,6 @@ function get_round_layout(index){
 				{ x: 1120, y: 896, sprite: Pu2_C_P5, offset_x: -286, offset_y: -173, is_anchor: false, is_main_anchor: false },
 				{ x: 1152, y: 288, sprite: Pu2_C_P6, offset_x: -307, offset_y: -326, is_anchor: false, is_main_anchor: false },
 				{ x: 704, y: 320, sprite: Pu2_C_P7, offset_x: 0, offset_y: -233, is_anchor: false, is_main_anchor: false }
-				// any more pieces needed
             ];
         case 1:	// second image
             return [

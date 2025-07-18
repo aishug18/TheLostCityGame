@@ -4,7 +4,7 @@ if (place_meeting(x, y, obj_Player)) {
 		global.puzzle_active = true;
 		
 		// Create the puzzle object
-		var puzzle = instance_create_layer(x, y, "Instances", obj_Puzzle1);
+		var puzzle = instance_create_layer(x, y, "Objects", obj_Puzzle1);
 		
 		// Pass in dynamic info
 		puzzle.victory_message = "You correctly answered all questions about the Mayan number system!";

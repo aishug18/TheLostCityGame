@@ -91,7 +91,6 @@
     {"id":{"name":"draw_dialogue_box","path":"scripts/draw_dialogue_box/draw_dialogue_box.yy",},},
     {"id":{"name":"get_round_layout","path":"scripts/get_round_layout/get_round_layout.yy",},},
     {"id":{"name":"in_range","path":"scripts/in_range/in_range.yy",},},
-    {"id":{"name":"mouse_to_gui","path":"scripts/mouse_to_gui/mouse_to_gui.yy",},},
     {"id":{"name":"spawn_puzzle_piece","path":"scripts/spawn_puzzle_piece/spawn_puzzle_piece.yy",},},
     {"id":{"name":"cartoon_voice","path":"sounds/cartoon_voice/cartoon_voice.yy",},},
     {"id":{"name":"Click","path":"sounds/Click/Click.yy",},},

@@ -151,7 +151,7 @@ solve_puzzle = function() {
 	}
 	
 	// Spawn portal
-	instance_create_layer(672, 480, "Instances", obj_Portal);
+	instance_create_layer(672, 480, "Objects", obj_Portal);
 	
 	// Destroy the puzzle after it's solved
 	instance_destroy();
