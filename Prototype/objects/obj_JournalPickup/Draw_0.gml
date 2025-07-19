@@ -3,7 +3,7 @@ if (!hide_sprite) {
 	draw_self();
 }
 
-if (journal_acquired && !global.prop) {
+if (journal_acquired) {
 
 	var line_1 = "You've acquired a journal! This journal is your life. Don't lose it!";
 	var line_2 = "It contains all the information you need to educate yourself about Mayan culture and solve Mayan-based puzzles.";

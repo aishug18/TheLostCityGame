@@ -7,7 +7,7 @@ if (mouse_check_button_pressed(mb_left)) {
 		room_goto_next();
 	}
 	
-	// Start game
+	// Quit game
 	if (point_in_rectangle(mx, my, button_quit.x, button_quit.y, button_quit.x + button_quit.w, button_quit.y + button_quit.h)) {
 		game_end();
 	}

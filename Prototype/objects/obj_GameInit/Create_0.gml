@@ -9,9 +9,6 @@ if (keyboard_check_pressed(vk_f11)) {
 // Global puzzle flag
 global.puzzle_active = false;
 
-// Pause flag
-global.game_paused = false;
-
 // Prop description (to stop gameplay)
 global.prop = false;
 

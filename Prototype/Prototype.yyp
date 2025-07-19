@@ -70,7 +70,7 @@
     {"id":{"name":"obj_NumWheel1","path":"objects/obj_NumWheel1/obj_NumWheel1.yy",},},
     {"id":{"name":"obj_NumWheel2","path":"objects/obj_NumWheel2/obj_NumWheel2.yy",},},
     {"id":{"name":"obj_PalmTree","path":"objects/obj_PalmTree/obj_PalmTree.yy",},},
-    {"id":{"name":"obj_PauseManager","path":"objects/obj_PauseManager/obj_PauseManager.yy",},},
+    {"id":{"name":"obj_Pause","path":"objects/obj_Pause/obj_Pause.yy",},},
     {"id":{"name":"obj_Player","path":"objects/obj_Player/obj_Player.yy",},},
     {"id":{"name":"obj_Portal","path":"objects/obj_Portal/obj_Portal.yy",},},
     {"id":{"name":"obj_PropCenser","path":"objects/obj_PropCenser/obj_PropCenser.yy",},},

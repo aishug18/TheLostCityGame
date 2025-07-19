@@ -1,5 +1,4 @@
 if (global.puzzle_active) exit;	// in puzzle mode
-if (global.game_paused) exit;	// paused game
 if (obj_JournalManager.journal_open) exit;	// opened journal
 if (global.prop) exit;	// prop description, so stop moving
 

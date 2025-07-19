@@ -1,4 +1,5 @@
-if (place_meeting(x, y, obj_Player)) {
+// Player collides with trigger and clicks to dismiss the Mayan numbers explanation, so start puzzle
+if (place_meeting(x, y, obj_Player) && mouse_check_button_pressed(mb_left)) {
 	if (!global.puzzle_active) {
 		// Start puzzle
 		global.puzzle_active = true;
