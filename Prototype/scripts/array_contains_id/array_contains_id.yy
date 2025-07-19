@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"array_contains_id",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"array_contains_id",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

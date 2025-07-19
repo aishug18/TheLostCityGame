@@ -1,5 +1,5 @@
 if (global.puzzle_active) exit;	// in puzzle mode
-if (obj_JournalManager.journal_open) exit;	// opened journal
+if (instance_exists(obj_JournalManager) && obj_JournalManager.journal_open) exit;	// opened journal
 if (global.prop) exit;	// prop description, so stop moving
 
 // ---- Input ----
