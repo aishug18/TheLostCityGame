@@ -1,4 +1,4 @@
-// Respawn point (later use an obj_playerrespawn
+// Respawn point
 x = obj_PlayerRespawn.x;
 y = obj_PlayerRespawn.y;
 
@@ -20,6 +20,6 @@ jump_sprite = Player_Jump;
 die = function() {
 	// play death animation
 	show_debug_message("death");
-	// Wait 2 seconds before respawning
-	//alarm[0] = 30;
+	// Wait half a second before respawning
+	alarm[0] = 30;
 }

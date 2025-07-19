@@ -1,7 +1,5 @@
-// Game progress
-global.clues_collected = [];	// clue ID list of clues collected to clear when restarting game
-
- // ^ for restarting game
- 
- // --> for dying and restarting current level
- 
+// Store collected clues for each level
+global.level_1_clues = [];
+global.level_2_clues = [];
+global.level_3_clues = [];
+global.level_4_clues = [];

@@ -6,7 +6,6 @@ if (place_meeting(x, y, obj_Player)) {
 	obj_JournalIconGUI.is_visible = true;
 }
 
-// Show Mayan number system intro
 if (journal_acquired && mouse_check_button_pressed(mb_left)) {
 	instance_destroy();
 }

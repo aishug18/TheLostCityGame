@@ -32,19 +32,13 @@ if (paused && mouse_check_button_pressed(mb_left)) {
 			buffer_delete(pause_surf_buffer);
 		}
 		
-		// Clear game progress
-		with (obj_GameState) {
-			global.clues_collected = [];
-			
-		}
-		
 		// Clear journal
 		with (obj_JournalManager) {
 			ds_list_clear(clues);
 			
 			// Add the first clue for Puzzle 1
 			ds_list_add(clues, {id: "NumberClue", sprite: TutPuzzleKey, x: 1380, y: 570});
-			array_push(global.clues_collected, "NumberClue");
+			array_push(global.level_1_clues, "NumberClue");
 			
 			current_page = 0;
 			journal_open = false;
@@ -55,6 +49,7 @@ if (paused && mouse_check_button_pressed(mb_left)) {
 			obj_JournalIconGUI.is_visible = false;
 		}
 		
+		// Reset flags
 		global.puzzle_active = false;
 		global.prop = false;
 		
