@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Prop1_leaves",
-    "path":"sprites/Prop1_leaves/Prop1_leaves.yy",
+    "name":"Prop2_bushes",
+    "path":"sprites/Prop2_bushes/Prop2_bushes.yy",
   },
   "spriteMaskId":null,
   "visible":true,
