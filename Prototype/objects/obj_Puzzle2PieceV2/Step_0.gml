@@ -12,11 +12,8 @@ if(mouse_check_button_released(mb_left)) {
 	dragging = false;
 }
 
-// While dragging, move the piece but clamp it so it can't leave the box
+// While dragging, move the piece
 if (dragging) {
-	var bbox_half_w = (bbox_right - bbox_left) / 2;
-	var bbox_half_h =(bbox_bottom - bbox_top) / 2;
-
 	x = mx - drag_offset_x;
 	y = my - drag_offset_y;
 }

@@ -51,13 +51,11 @@ run_puzzle = function () {
 	// Compare each piece's actual offset to its expected offset
 	var all_correct = true;
 	with (obj_Puzzle2PieceV2) {
-		if (!is_anchor) {
-			var expected_x = anchor.x + offset_x;
-			var expected_y = anchor.y + offset_y;
+		var expected_x = anchor.x + offset_x;
+		var expected_y = anchor.y + offset_y;
 
-			if (point_distance(x, y, expected_x, expected_y) > 15) {
-				all_correct = false;
-			}
+		if (point_distance(x, y, expected_x, expected_y) > 20) {
+			all_correct = false;
 		}
 	}
 	
@@ -100,39 +98,6 @@ draw_puzzle = function () {
 		}
 	}
 	else {	// Draw puzzle
-		var line_1 = "Welcome to the next puzzle!";
-		
-		var line_2 = "The goal is to put together all of the broken";
-		var line_3 = "pieces to form an artifact, one that is important";
-		var line_4 = "to the Mayan culture.";
-		
-		var line_5 = "One piece is the \"anchor\" piece, meaning you";
-		var line_6 = "can't move it. Click and drag the other pieces to";
-		var line_7 = "move them, and place them around the anchor piece.";
-		
-		var line_8 = "Once you place all pieces in their correct";
-		var line_9 = "position, the artifact will be restored!";
-		
-		draw_set_color(c_white);
-		draw_text(100, 140, line_1);
-		
-		draw_text(100, 180, line_2);
-		draw_text(100, 210, line_3);
-		draw_text(100, 240, line_4);
-		
-		draw_text(100, 280, line_5);
-		draw_text(100, 310, line_6);
-		draw_text(100, 340, line_7);
-		
-		draw_text(100, 380, line_8);
-		draw_text(100, 410, line_9);
-
-		with (obj_Puzzle2PieceV2) {	// loop over every instance of obj_Puzzle2Piece
-			// Draw canvas
-			//draw_set_color(make_color_rgb(30, 30, 30));
-			//draw_rectangle(box_left, box_top, box_right, box_bottom, false); // filled
-		}
-		
 		with (obj_Puzzle2PieceV2) {
 			draw_sprite(sprite_index, 0, x, y);
 		}
