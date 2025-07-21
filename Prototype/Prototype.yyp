@@ -156,6 +156,8 @@
     {"id":{"name":"NEW_Pu2_S_P3","path":"sprites/NEW_Pu2_S_P3/NEW_Pu2_S_P3.yy",},},
     {"id":{"name":"NEW_Pu2_S_P4","path":"sprites/NEW_Pu2_S_P4/NEW_Pu2_S_P4.yy",},},
     {"id":{"name":"NextBtn","path":"sprites/NextBtn/NextBtn.yy",},},
+    {"id":{"name":"NPC_dialoge1","path":"sprites/NPC_dialoge1/NPC_dialoge1.yy",},},
+    {"id":{"name":"NPC_dialoge2","path":"sprites/NPC_dialoge2/NPC_dialoge2.yy",},},
     {"id":{"name":"NPC_Idle","path":"sprites/NPC_Idle/NPC_Idle.yy",},},
     {"id":{"name":"NPC_static","path":"sprites/NPC_static/NPC_static.yy",},},
     {"id":{"name":"NPC_Talk","path":"sprites/NPC_Talk/NPC_Talk.yy",},},
