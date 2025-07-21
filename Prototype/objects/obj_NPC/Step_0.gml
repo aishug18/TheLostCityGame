@@ -1,5 +1,6 @@
 if (in_range()) {
 	talk = true;
+	//first = !first;
 }
 else {
 	talk = false;

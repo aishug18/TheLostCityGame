@@ -238,7 +238,6 @@
     {"id":{"name":"spr_Spikes","path":"sprites/spr_Spikes/spr_Spikes.yy",},},
     {"id":{"name":"spr_Wall","path":"sprites/spr_Wall/spr_Wall.yy",},},
     {"id":{"name":"spr_WallGrass","path":"sprites/spr_WallGrass/spr_WallGrass.yy",},},
-    {"id":{"name":"Sprite120","path":"sprites/Sprite120/Sprite120.yy",},},
     {"id":{"name":"SubmitBtn","path":"sprites/SubmitBtn/SubmitBtn.yy",},},
     {"id":{"name":"TutorialPuzzleProblemBox","path":"sprites/TutorialPuzzleProblemBox/TutorialPuzzleProblemBox.yy",},},
     {"id":{"name":"TutPuzzle16","path":"sprites/TutPuzzle16/TutPuzzle16.yy",},},

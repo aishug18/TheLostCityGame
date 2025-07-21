@@ -16,10 +16,13 @@ idle_sprite = Player_Idle;
 walk_sprite = Player_Walk;
 jump_sprite = Player_Jump;
 
+dead = false;
+
 // Death
 die = function() {
 	// play death animation
 	show_debug_message("death");
-	// Wait half a second before respawning
-	alarm[0] = 30;
+	dead = true;
+	// Wait one-ish second before respawning
+	alarm[0] = 80;
 }

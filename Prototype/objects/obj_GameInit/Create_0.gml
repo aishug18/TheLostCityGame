@@ -18,7 +18,7 @@ global.level_2_clues = [];
 global.level_3_clues = [];
 global.level_4_clues = [];
 
-// start background music with looping
-//audio_play_sound(* sound file asset *, 1, true);	// true = looping
+// Play background music
+audio_play_sound(music6, 1, true);	// true = looping
 
 // Any other startup settings

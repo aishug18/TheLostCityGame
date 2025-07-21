@@ -71,6 +71,11 @@ if (!on_ground) {
 	sprite_index = jump_sprite;
 }
 
+// Dead
+if (dead) {
+	sprite_index = Player_death;
+}
+
 // Set the collision mask
 mask_index = idle_sprite;
 

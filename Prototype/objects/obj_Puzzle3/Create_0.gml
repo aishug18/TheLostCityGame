@@ -86,7 +86,7 @@ run_puzzle = function () {
 		}
 		else {
 			// Show "wrong" feedback
-			show_debug_message("Incorrect combination!");
+			draw_text(1100, 600, "Incorrect combination!");
 		}
 	}
 };
@@ -103,64 +103,6 @@ draw_puzzle = function () {
 		}
 	}
 	else {
-		// Information
-		var line_1 = "Welcome to the final puzzle!";
-		
-		var line_2 = "This puzzle is based off of the Mayan calendar system, one of the";
-		var line_3 = "most sophisticated and advanced systems in history.";
-		
-		var line_4 = "The Mayans used three calendar systems: Long Count, Haab', and Tzolk'in.";
-		
-		var line_5 = "A day in the Gregorian calendar (our calendar), like July 23, 2019,";
-		var line_6 = "can be written using Long Count, Haab', and Tzolk'in.";
-		
-		var line_7 = "The goal of the puzzle is to align the wheel dials to match a";
-		var line_8 = "specific date.";
-		
-		var line_9 = "What's the date, you ask? Solve the riddle on the right";
-		var line_10 = "to find out!";
-		
-		var line_11 = "Use your journal and the information you recorded in it to";
-		var line_12 = "help decode the riddle.";
-		
-		var line_13 = "Navigate between wheels by using the up and down arrows. The";
-		var line_14 = "selected wheel is highlighted green.";
-		
-		var line_15 = "Turn each wheel left or right by using the left and right arrows.";
-		
-		var line_16 = "When you think you correctly aligned the glyphs, press Enter.";
-		
-		var line_17 = "Once you correctly align the wheel dials, you will unlock something!";
-		
-		draw_set_color(c_white);
-		draw_text(100, 140, line_1);
-		
-		draw_text(100, 180, line_2);
-		draw_text(100, 210, line_3);
-		
-		draw_text(100, 250, line_4);
-		
-		draw_text(100, 290, line_5);
-		draw_text(100, 320, line_6);
-		
-		draw_text(100, 360, line_7);
-		draw_text(100, 390, line_8);
-		
-		draw_text(100, 430, line_9);
-		draw_text(100, 460, line_10);
-		
-		draw_text(100, 500, line_11);
-		draw_text(100, 530, line_12);
-		
-		draw_text(100, 570, line_13);
-		draw_text(100, 600, line_14);
-		
-		draw_text(100, 640, line_15);
-		
-		draw_text(100, 680, line_16);
-		
-		draw_text(100, 720, line_17);
-		
 		// Draw wheels
 		if (instance_exists(wheels[0])) {	// Draw NumWheel1
 			draw_sprite_ext(Wheel_T1, 0, wheels[0].x, wheels[0].y, 1, 1, wheels[0].angle, c_white, 1);	// Draw the sprite normally, but rotate it.

@@ -76,8 +76,6 @@ draw_puzzle = function () {
 		var full_sprite = round_complete_sprites[current_round];
 		draw_sprite(full_sprite, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		
-		draw_text(1500, 750, "Click anywhere to go to the next round");
-		
 		if (mouse_check_button_pressed(mb_left)) {
 			if (current_round < total_rounds - 1) {	// More rounds to go
 				current_round++;
