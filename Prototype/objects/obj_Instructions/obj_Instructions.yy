@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Instr1_spr",
-    "path":"sprites/Instr1_spr/Instr1_spr.yy",
+    "name":"NPC_dialoge2",
+    "path":"sprites/NPC_dialoge2/NPC_dialoge2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

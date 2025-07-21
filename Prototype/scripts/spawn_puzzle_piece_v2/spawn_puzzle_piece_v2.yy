@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"spawn_puzzle_piece_v2",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"spawn_puzzle_piece_v2",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

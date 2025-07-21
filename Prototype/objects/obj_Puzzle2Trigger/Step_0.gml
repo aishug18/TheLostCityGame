@@ -4,10 +4,10 @@ if (place_meeting(x, y, obj_Player)) {
 		global.puzzle_active = true;
 		
 		// Create the puzzle object
-		var puzzle = instance_create_layer(x, y, "Objects", obj_Puzzle2);
+		var puzzle = instance_create_layer(x, y, "Objects", obj_Puzzle2V2);
 		
 		// Pass in dynamic info
-		puzzle.victory_message = "You successfully restored all artifacts and opened the door!";
+		puzzle.victory_message = "You successfully restored all artifacts!";
 		
 		// Store it in the puzzle manager
 		with (obj_PuzzleManager) {

@@ -12,7 +12,13 @@ global.puzzle_active = false;
 // Prop description (to stop gameplay)
 global.prop = false;
 
-// start background music with looping
-//audio_play_sound(* sound file asset *, 1, true);	// true = looping
+// Store collected clues for each level
+global.level_1_clues = [];
+global.level_2_clues = [];
+global.level_3_clues = [];
+global.level_4_clues = [];
+
+// Play background music
+audio_play_sound(music6, 1, true);	// true = looping
 
 // Any other startup settings
