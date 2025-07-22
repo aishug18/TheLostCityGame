@@ -240,6 +240,8 @@
     {"id":{"name":"spr_WallGrass","path":"sprites/spr_WallGrass/spr_WallGrass.yy",},},
     {"id":{"name":"SubmitBtn","path":"sprites/SubmitBtn/SubmitBtn.yy",},},
     {"id":{"name":"TutorialPuzzleProblemBox","path":"sprites/TutorialPuzzleProblemBox/TutorialPuzzleProblemBox.yy",},},
+    {"id":{"name":"TutPuzzle_AnswerDot","path":"sprites/TutPuzzle_AnswerDot/TutPuzzle_AnswerDot.yy",},},
+    {"id":{"name":"TutPuzzle_failEx","path":"sprites/TutPuzzle_failEx/TutPuzzle_failEx.yy",},},
     {"id":{"name":"TutPuzzle16","path":"sprites/TutPuzzle16/TutPuzzle16.yy",},},
     {"id":{"name":"TutPuzzle73","path":"sprites/TutPuzzle73/TutPuzzle73.yy",},},
     {"id":{"name":"TutPuzzleIntro","path":"sprites/TutPuzzleIntro/TutPuzzleIntro.yy",},},

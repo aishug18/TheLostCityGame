@@ -214,6 +214,7 @@
     {"name":"inst_5D8C4EA9","path":"rooms/rm_Stage3/rm_Stage3.yy",},
     {"name":"inst_7894995B","path":"rooms/rm_Stage3/rm_Stage3.yy",},
     {"name":"inst_147C3677","path":"rooms/rm_Stage3/rm_Stage3.yy",},
+    {"name":"inst_4C7842C6","path":"rooms/rm_Stage3/rm_Stage3.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -428,6 +429,7 @@
         {"$GMRInstance":"v2","%Name":"inst_5D8C4EA9","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5D8C4EA9","objectId":{"name":"obj_HalfGround","path":"objects/obj_HalfGround/obj_HalfGround.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":576.0,"y":192.0,},
         {"$GMRInstance":"v2","%Name":"inst_7894995B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7894995B","objectId":{"name":"obj_HalfGround","path":"objects/obj_HalfGround/obj_HalfGround.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":512.0,"y":192.0,},
         {"$GMRInstance":"v2","%Name":"inst_147C3677","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_147C3677","objectId":{"name":"obj_Ground","path":"objects/obj_Ground/obj_Ground.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":448.0,"y":352.0,},
+        {"$GMRInstance":"v2","%Name":"inst_4C7842C6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4C7842C6","objectId":{"name":"obj_Spikes","path":"objects/obj_Spikes/obj_Spikes.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":992.0,"y":192.0,},
       ],"layers":[],"name":"Level","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background_Effect","animationFPS":15.0,"animationSpeedType":0,"colour":1662523416,"depth":200,"effectEnabled":true,"effectType":"_filter_fractal_noise","gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background_Effect","properties":[
         {"name":"g_FractalNoiseScale","type":0,"value":"94",},
