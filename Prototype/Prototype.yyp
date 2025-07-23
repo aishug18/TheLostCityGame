@@ -136,6 +136,7 @@
     {"id":{"name":"HalfWallHor_spr","path":"sprites/HalfWallHor_spr/HalfWallHor_spr.yy",},},
     {"id":{"name":"HalfWallVert_spr","path":"sprites/HalfWallVert_spr/HalfWallVert_spr.yy",},},
     {"id":{"name":"Help_spr","path":"sprites/Help_spr/Help_spr.yy",},},
+    {"id":{"name":"Iguana","path":"sprites/Iguana/Iguana.yy",},},
     {"id":{"name":"Instr1_spr","path":"sprites/Instr1_spr/Instr1_spr.yy",},},
     {"id":{"name":"Instr2_spr","path":"sprites/Instr2_spr/Instr2_spr.yy",},},
     {"id":{"name":"Instr3_spr","path":"sprites/Instr3_spr/Instr3_spr.yy",},},
