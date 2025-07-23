@@ -14,6 +14,7 @@ item_list = [
 	{ x: 510, y: 320, sprite: spr_Item8, desc: spr_Desc8, id: "knife", correct: true, selected: false },
 	{ x: 350, y: 610, sprite: spr_Item9, desc: spr_Desc9, id: "bowl", correct: false, selected: false },
 	{ x: 1570, y: 260, sprite: spr_Item10, desc: spr_Desc10, id: "vase", correct: false, selected: false },
+	{ x: 990, y: 860, sprite: spr_Item1, desc: spr_Desc1, id: "bone", correct: true, selected: false },
 ];
 
 // Variables
