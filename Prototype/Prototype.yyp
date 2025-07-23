@@ -211,6 +211,7 @@
     {"id":{"name":"Pu4_prop6","path":"sprites/Pu4_prop6/Pu4_prop6.yy",},},
     {"id":{"name":"Puzzle4_bg","path":"sprites/Puzzle4_bg/Puzzle4_bg.yy",},},
     {"id":{"name":"Puzzle4_Finalbg","path":"sprites/Puzzle4_Finalbg/Puzzle4_Finalbg.yy",},},
+    {"id":{"name":"Puzzle4_FinalEx","path":"sprites/Puzzle4_FinalEx/Puzzle4_FinalEx.yy",},},
     {"id":{"name":"PuzzleIcon_spr","path":"sprites/PuzzleIcon_spr/PuzzleIcon_spr.yy",},},
     {"id":{"name":"Room_Portal_spr","path":"sprites/Room_Portal_spr/Room_Portal_spr.yy",},},
     {"id":{"name":"spr_BG1","path":"sprites/spr_BG1/spr_BG1.yy",},},
