@@ -4,23 +4,29 @@ state = "browse";	// "browse", "selecting", "complete", "done"
 
 // Item list
 item_list = [
-	{ x: 990, y: 860, sprite: spr_Item1, desc: spr_Desc1, id: "bone", correct: true, selected: false },
-	{ x: 1590, y: 670, sprite: spr_Item2, desc: spr_Desc2, id: "skull", correct: true, selected: false },
-	{ x: 1340, y: 420, sprite: spr_Item3, desc: spr_Desc3, id: "mask", correct: false, selected: false },
-	{ x: 1350, y: 740, sprite: spr_Item4, desc: spr_Desc4, id: "acid", correct: true, selected: false },
-	{ x: 1060, y: 450, sprite: spr_Item5, desc: spr_Desc5, id: "statue", correct: false, selected: false },
-	{ x: 830, y: 300, sprite: spr_Item6, desc: spr_Desc6, id: "torch", correct: false, selected: false },
-	{ x: 670, y: 700, sprite: spr_Item7, desc: spr_Desc7, id: "scroll", correct: true, selected: false },
-	{ x: 510, y: 320, sprite: spr_Item8, desc: spr_Desc8, id: "knife", correct: true, selected: false },
-	{ x: 350, y: 610, sprite: spr_Item9, desc: spr_Desc9, id: "bowl", correct: false, selected: false },
-	{ x: 1570, y: 260, sprite: spr_Item10, desc: spr_Desc10, id: "vase", correct: false, selected: false },
-	{ x: 990, y: 860, sprite: spr_Item1, desc: spr_Desc1, id: "bone", correct: true, selected: false },
+	{ x: 1312, y: 768, sprite: spr_Item1, desc: spr_Desc1, id: "bone", correct: true, selected: false },
+	{ x: 32, y: 608, sprite: spr_Item2, desc: spr_Desc2, id: "skull", correct: true, selected: false },
+	{ x: 768, y: 896, sprite: spr_Item3, desc: spr_Desc3, id: "mask", correct: false, selected: false },
+	{ x: 448, y: 160, sprite: spr_Item4, desc: spr_Desc4, id: "acid", correct: true, selected: false },
+	{ x: 1600, y: 512, sprite: spr_Item5, desc: spr_Desc5, id: "statue", correct: false, selected: false },
+	{ x: 1152, y: 640, sprite: spr_Item6, desc: spr_Desc6, id: "torch", correct: false, selected: false },
+	{ x: 1632, y: 64, sprite: spr_Item7, desc: spr_Desc7, id: "scroll", correct: true, selected: false },
+	{ x: 352, y: 672, sprite: spr_Item8, desc: spr_Desc8, id: "knife", correct: true, selected: false },
+	//{ x: 350, y: 610, sprite: spr_Item9, desc: spr_Desc9, id: "bowl", correct: false, selected: false },
+	//{ x: 1570, y: 260, sprite: spr_Item10, desc: spr_Desc10, id: "vase", correct: false, selected: false },
+	
+	//NON-CLICKABLE ITEMS
+	//spr:Pu4_prop4			x:1632 y:32
+	//spr:Pu4_prop6			x:1472 y:640
+	//spr:Pu4_prop1		 x:832 y:80
+	//spr:Pu4_prop2		 x:32 y:704
+	//spr:Pu4_prop5		 x:0 y:-32
 ];
 
 // Variables
 selected_item = -1;	// index in item_list
 correct_collected = 0;	// count of correct items
-required_items = 5;	// total required items to find
+required_items = 4;	// total required items to find
 
 // Button positions
 btn_putBack = { x: 400, y: 500, w: 150, h: 50 };	// later change to just position and sprite
