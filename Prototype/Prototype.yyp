@@ -218,7 +218,6 @@
     {"id":{"name":"RestartBtn_spr","path":"sprites/RestartBtn_spr/RestartBtn_spr.yy",},},
     {"id":{"name":"ResumeBtn_spr","path":"sprites/ResumeBtn_spr/ResumeBtn_spr.yy",},},
     {"id":{"name":"Room_Portal_spr","path":"sprites/Room_Portal_spr/Room_Portal_spr.yy",},},
-    {"id":{"name":"Spikes_spr","path":"sprites/Spikes_spr/Spikes_spr.yy",},},
     {"id":{"name":"spr_BG1","path":"sprites/spr_BG1/spr_BG1.yy",},},
     {"id":{"name":"spr_BG2","path":"sprites/spr_BG2/spr_BG2.yy",},},
     {"id":{"name":"spr_BG3","path":"sprites/spr_BG3/spr_BG3.yy",},},

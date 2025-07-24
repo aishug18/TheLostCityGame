@@ -6,12 +6,12 @@ state = "browse";	// "browse", "selecting", "complete", "done"
 item_list = [
 	{ x: 1312, y: 768, sprite: spr_Item1, desc: spr_Desc1, id: "stingray", correct: true, selected: false },
 	{ x: 32, y: 608, sprite: spr_Item2, desc: spr_Desc2, id: "pot", correct: true, selected: false },
-	{ x: 768, y: 896, sprite: spr_Item3, desc: spr_Desc3, id: "incense", correct: false, selected: false },
+	{ x: 768, y: 896, sprite: spr_Item3, desc: spr_Desc3, id: "incense", correct: true, selected: false },
 	{ x: 448, y: 160, sprite: spr_Item4, desc: spr_Desc4, id: "censer", correct: true, selected: false },
 	{ x: 1600, y: 512, sprite: spr_Item5, desc: spr_Desc5, id: "cocoa", correct: false, selected: false },
 	{ x: 1152, y: 640, sprite: spr_Item6, desc: spr_Desc6, id: "knife", correct: false, selected: false },
-	{ x: 1632, y: 64, sprite: spr_Item7, desc: spr_Desc7, id: "handle", correct: true, selected: false },
-	{ x: 352, y: 672, sprite: spr_Item8, desc: spr_Desc8, id: "gold", correct: true, selected: false }
+	{ x: 1632, y: 64, sprite: spr_Item7, desc: spr_Desc7, id: "handle", correct: false, selected: false },
+	{ x: 352, y: 672, sprite: spr_Item8, desc: spr_Desc8, id: "gold", correct: false, selected: false }
 ];
 
 // Props for background
