@@ -15,7 +15,7 @@ move_direction = rightKey - leftKey;
 
 x_speed = move_direction * move_speed;
 
-if (place_meeting(x + x_speed, y, obj_Solid)) {
+if (place_meeting(x + x_speed, y, obj_Solid) || dead) {
 	x_speed = 0;	// collision, so stop moving
 }
 
@@ -34,7 +34,7 @@ if (y_speed > 8) {
 	y_speed = 8;
 }
 
-if (place_meeting(x, y + y_speed, obj_Solid)) {
+if (place_meeting(x, y + y_speed, obj_Solid) || dead) {
 	y_speed = 0;	// collision, so stop moving
 }
 

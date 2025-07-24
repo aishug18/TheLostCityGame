@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Item7",
+  "%Name":"tut",
   "eventList":[],
   "managed":true,
-  "name":"obj_Item7",
+  "name":"tut",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Item7",
-    "path":"sprites/spr_Item7/spr_Item7.yy",
+    "name":"spr_HowToPlay",
+    "path":"sprites/spr_HowToPlay/spr_HowToPlay.yy",
   },
   "spriteMaskId":null,
   "visible":true,

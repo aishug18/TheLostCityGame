@@ -57,8 +57,18 @@ if (paused && mouse_check_button_pressed(mb_left)) {
 		room_goto(rm_Stage1);
 	}
 	
+	// Show how to play screen
+	if (point_in_rectangle(mx, my, btn_howtoplay.x, btn_howtoplay.y, btn_howtoplay.x + btn_howtoplay.w, btn_howtoplay.y + btn_howtoplay.h)) {
+		how_to_play = true;
+	}
+	
 	// Quit game
 	if (point_in_rectangle(mx, my, btn_quit.x, btn_quit.y, btn_quit.x + btn_quit.w, btn_quit.y + btn_quit.h)) {
 		game_end();
+	}
+	
+	// Go back to pause from how to play
+	if (how_to_play && point_in_rectangle(mx, my, btn_back.x, btn_back.y, btn_back.x + btn_back.w, btn_back.y + btn_back.h)) {
+		how_to_play = false;
 	}
 }

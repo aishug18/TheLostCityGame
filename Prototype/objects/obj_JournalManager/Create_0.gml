@@ -2,8 +2,8 @@ clues = ds_list_create();	// contains sprite and coordinates
 journal_open = false;
 current_page = 0;
 
-right_arrow = {x: 1780, y: 540};
-left_arrow = {x: 950, y: 540};
+right_arrow = {x: 1745, y: 560};
+left_arrow = {x: 990, y: 560};
 
 // Add the first clue for Puzzle 1
 ds_list_add(clues, {id: "NumberClue", sprite: TutPuzzleKey, x: 1380, y: 570});

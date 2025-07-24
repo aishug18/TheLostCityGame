@@ -28,6 +28,15 @@ option_btns = [
 	{ x: 320, y: 900 },
 ];
 
+option_selected = [
+	{ x: 242, y: 516 },
+	{ x: 242, y: 655 },
+	{ x: 242, y: 795 },
+	{ x: 242, y: 935 },
+];
+
+opt_radius = 40;
+
 submit_btn = { x: 980, y: 910, sprite: SubmitBtn };
 
 next_btn = { x: 980, y: 910, sprite: NextBtn };
@@ -45,11 +54,13 @@ run_puzzle = function () {
 	var mx = device_mouse_x_to_gui(0);
 	var my = device_mouse_y_to_gui(0);
 	
-	// Check if option is selected
+	// Check if option is selected, either where the text is or the circle
 	for (var i = 0; i < 4; i++) {
 	    if (mouse_check_button_pressed(mb_left) &&
-	        point_in_rectangle(mx, my, option_btns[i].x, option_btns[i].y, option_btns[i].x + opt_btn_w, option_btns[i].y + opt_btn_h)) {
-	        selected_index = i;
+	        (point_in_rectangle(mx, my, option_btns[i].x, option_btns[i].y, option_btns[i].x + opt_btn_w, option_btns[i].y + opt_btn_h)
+			|| point_in_circle(mx, my, option_selected[i].x, option_selected[i].y, opt_radius))) {
+	        
+			selected_index = i;
 	    }
 	}
 
@@ -85,13 +96,10 @@ draw_puzzle = function () {
 
 		// Draw options
 		for (var i = 0; i < 4; i++) {
-		    var color = (i == selected_index) ? c_lime : c_black;	// change to fill in bubble
-		    draw_set_color(color);
-			var alpha = (i == selected_index) ? 1 : 0;
-			draw_set_alpha(alpha);
-			draw_rectangle(option_btns[i].x, option_btns[i].y, option_btns[i].x + opt_btn_w, option_btns[i].y + opt_btn_h, true);	// outline
+			if (i == selected_index) {
+				draw_sprite(TutPuzzle_AnswerDot, 0, option_selected[i].x, option_selected[i].y);
+			}
 			draw_set_color(c_black);
-			draw_set_alpha(1);
 			draw_text(option_btns[i].x + 10, option_btns[i].y + 10, question.options[i]);
 		}
 

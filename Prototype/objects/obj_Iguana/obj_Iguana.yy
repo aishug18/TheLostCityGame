@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Item1",
+  "%Name":"obj_Iguana",
   "eventList":[],
   "managed":true,
-  "name":"obj_Item1",
+  "name":"obj_Iguana",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_Item1",
-    "path":"sprites/spr_Item1/spr_Item1.yy",
+    "name":"Iguana",
+    "path":"sprites/Iguana/Iguana.yy",
   },
   "spriteMaskId":null,
   "visible":true,

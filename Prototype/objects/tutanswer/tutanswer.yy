@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"obj_Item9",
+  "%Name":"tutanswer",
   "eventList":[],
   "managed":true,
-  "name":"obj_Item9",
+  "name":"tutanswer",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"TutPuzzle_AnswerDot",
+    "path":"sprites/TutPuzzle_AnswerDot/TutPuzzle_AnswerDot.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

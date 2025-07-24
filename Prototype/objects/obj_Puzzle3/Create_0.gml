@@ -11,17 +11,17 @@ wheel_1.index = 0;	// Identify wheel
 wheel_1.active = true;	// The first wheel is selected by default
 array_push(wheels, wheel_1);
 
-var wheel_2 = instance_create_layer(460, 545, "Objects", obj_TzolkinWheel);
+var wheel_2 = instance_create_layer(456, 551, "Objects", obj_TzolkinWheel);
 wheel_2.index = 1;
 wheel_2.active = false;	// Other wheels are not selected
 array_push(wheels, wheel_2);
 
-var wheel_3 = instance_create_layer(460, 550, "Objects", obj_NumWheel2);
+var wheel_3 = instance_create_layer(462, 556, "Objects", obj_NumWheel2);
 wheel_3.index = 2;
 wheel_3.active = false;
 array_push(wheels, wheel_3);
 
-var wheel_4 = instance_create_layer(460, 550, "Objects", obj_HaabWheel);
+var wheel_4 = instance_create_layer(460, 547, "Objects", obj_HaabWheel);
 wheel_4.index = 3;
 wheel_4.active = false;
 array_push(wheels, wheel_4);
@@ -129,7 +129,7 @@ draw_puzzle = function () {
 			if (instance_exists(w)) {
 				if(w.active) {
 					draw_set_color(c_lime);
-					draw_circle(w.x, w.y, w.sprite_width / 2 - 25, true);
+					draw_circle(w.x, w.y, w.sprite_width / 2 - 15, true);
 				}
 			}
 		}
