@@ -53,7 +53,7 @@ puzzle_solved = false;
 run_puzzle = function () {
 	// Check if puzzle is solved
 	if (puzzle_solved) {
-		return;
+		alarm[0] = 60;
 	}
 	
 	var mx = device_mouse_x_to_gui(0);
@@ -163,12 +163,15 @@ draw_puzzle = function () {
 		}
 	}
 	else {
-		draw_set_color(c_white);
-		draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
+		draw_sprite(ConfettiWin_spr, -1, 0, 0);
+		//alarm[0] = 60;	// play animation for a bit, then exit
+		
+		//draw_set_color(c_white);
+		//draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
 	
-		if(draw_continue_button(860, 520)) {
-			solve_puzzle();
-		}
+		//if(draw_continue_button(860, 520)) {
+		//	solve_puzzle();
+		//}
 	}
 };
 

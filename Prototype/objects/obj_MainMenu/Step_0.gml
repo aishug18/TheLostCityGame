@@ -18,7 +18,7 @@ if (mouse_check_button_pressed(mb_left)) {
 	}
 	
 	// Quit game
-	if (point_in_rectangle(mx, my, button_quit.x, button_quit.y, button_quit.x + button_quit.w, button_quit.y + button_quit.h)) {
+	if (point_in_rectangle(mx, my, button_quit.x, button_quit.y, button_quit.x + sprite_get_width(button_quit.sprite), button_quit.y + sprite_get_height(button_quit.sprite))) {
 		game_end();
 	}
 }

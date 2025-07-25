@@ -35,12 +35,13 @@ help = false;	// true if help icon is clicked
 // State flags
 puzzle_solved = false;
 solution = [7, 3, 3, 0];	// Answer: 4 Ajaw 8 Kumk'u
+explain = false;
 
 
 // Run puzzle
 run_puzzle = function () {
 	// Check if puzzle is solved
-	if (puzzle_solved) {
+	if (explain) {
 		return;
 	}
 	
@@ -98,7 +99,7 @@ run_puzzle = function () {
 		}
 		
 		if(correct) {
-			puzzle_solved = true;
+			explain = true;
 			
 			// Deactivate wheels so player can't keep spinning them
 			for (var i = 0; i < 4; i++) {
@@ -121,6 +122,14 @@ draw_puzzle = function () {
 		
 		if(draw_continue_button(860, 520)) {
 			solve_puzzle();
+		}
+
+	}
+	else if (explain && !puzzle_solved) {
+		// Draw explanation sprite
+		draw_sprite(Wheel_EndEx, 0, 960, 540);
+		if (mouse_check_button_pressed(mb_left)) {
+			puzzle_solved = true;
 		}
 	}
 	else {

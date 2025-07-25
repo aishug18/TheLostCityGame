@@ -8,7 +8,7 @@ if (paused && mouse_check_button_pressed(mb_left)) {
 	var my = device_mouse_y_to_gui(0);
 	
 	// Resume game
-	if (point_in_rectangle(mx, my, btn_resume.x, btn_resume.y, btn_resume.x + btn_resume.w, btn_resume.y + btn_resume.h)) {
+	if (point_in_rectangle(mx, my, btn_resume.x, btn_resume.y, btn_resume.x + sprite_get_width(btn_resume.sprite), btn_resume.y + sprite_get_height(btn_resume.sprite))) {
 		paused = false;
 		
 		instance_activate_all();
@@ -23,7 +23,7 @@ if (paused && mouse_check_button_pressed(mb_left)) {
 	}
 	
 	// Restart game
-	if (point_in_rectangle(mx, my, btn_restart.x, btn_restart.y, btn_restart.x + btn_restart.w, btn_restart.y + btn_restart.h)) {	
+	if (point_in_rectangle(mx, my, btn_restart.x, btn_restart.y, btn_restart.x + sprite_get_width(btn_restart.sprite), btn_restart.y + sprite_get_height(btn_restart.sprite))) {	
 		paused = false;
 		
 		instance_activate_all();
@@ -67,7 +67,7 @@ if (paused && mouse_check_button_pressed(mb_left)) {
 	}
 	
 	// Quit game
-	if (point_in_rectangle(mx, my, btn_quit.x, btn_quit.y, btn_quit.x + btn_quit.w, btn_quit.y + btn_quit.h)) {
+	if (point_in_rectangle(mx, my, btn_quit.x, btn_quit.y, btn_quit.x + sprite_get_width(btn_back.sprite), btn_back.y + sprite_get_height(btn_back.sprite))) {
 		game_end();
 	}
 	
