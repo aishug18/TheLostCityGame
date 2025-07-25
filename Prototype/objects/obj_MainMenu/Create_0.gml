@@ -1,8 +1,8 @@
 // Set up fonts, button positions, etc.
-button_start = { x: 800, y: 700, w: 320, h: 60 };
-btn_howtoplay = { x: 800, y: 800, w: 320, h: 60 };
-button_quit = { x: 800, y: 900, sprite: QuitBtn_spr };
+button_start = { x: 192, y: 700, sprite: MenuStart_btn };
+btn_howtoplay = { x: 778, y: 700, sprite: MenuHowTo_btn };
+button_quit = { x: 1376, y: 700, sprite: MenuQuit_btn };
 
-btn_back = { x: 1485, y: 820, sprite: BackBtn_spr };
+btn_back = { x: 95, y: 65, sprite: BackBtn_spr };
 
 how_to_play = false;

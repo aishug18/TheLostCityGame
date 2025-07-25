@@ -47,12 +47,14 @@ back_btn = {x: 790, y: 480, sprite: BackBtn_spr };
 help = false;	// true if help icon is clicked
 
 puzzle_solved = false;
+confetti = false;
 
 
 // Run puzzle
 run_puzzle = function () {
-	// Check if puzzle is solved
-	if (puzzle_solved) {
+	// Check if puzzle is solved to play confetti
+	if (!puzzle_solved && confetti) {	// Flags to ensure alarm gets called once
+		puzzle_solved = true;
 		alarm[0] = 60;
 	}
 	
@@ -92,7 +94,7 @@ run_puzzle = function () {
 	    show_next_button = false;
 
 	    if (current_question >= array_length(question_data)) {
-			puzzle_solved = true;
+			confetti = true;	// puzzle is done, play confetti
 	    }
 	}
 };
@@ -102,7 +104,7 @@ draw_puzzle = function () {
 	var mx = device_mouse_x_to_gui(0);
 	var my = device_mouse_y_to_gui(0);
 	
-	if (!puzzle_solved) {
+	if (!confetti) {
 		var question = question_data[current_question];
 
 		// Draw problem box with question
@@ -164,28 +166,5 @@ draw_puzzle = function () {
 	}
 	else {
 		draw_sprite(ConfettiWin_spr, -1, 0, 0);
-		//alarm[0] = 60;	// play animation for a bit, then exit
-		
-		//draw_set_color(c_white);
-		//draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
-	
-		//if(draw_continue_button(860, 520)) {
-		//	solve_puzzle();
-		//}
 	}
-};
-
-// Puzzle is solved, so trigger portal
-solve_puzzle = function() {
-	global.puzzle_active = false;
-	
-	with(obj_PuzzleManager) {
-		current_puzzle = noone;
-	}
-	
-	// Spawn portal
-	instance_create_layer(1360, 144, "Objects", obj_Portal);
-	
-	// Destroy the puzzle after it's solved
-	instance_destroy();
 };

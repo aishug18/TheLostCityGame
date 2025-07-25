@@ -243,10 +243,12 @@
     {"name":"inst_6DCA0527","path":"rooms/rm_Stage1/rm_Stage1.yy",},
     {"name":"inst_1ABDE5EA","path":"rooms/rm_Stage1/rm_Stage1.yy",},
     {"name":"inst_4B2AD26E","path":"rooms/rm_Stage1/rm_Stage1.yy",},
+    {"name":"inst_FA4D420","path":"rooms/rm_Stage1/rm_Stage1.yy",},
   ],
   "isDnd":false,
   "layers":[
     {"$GMRInstanceLayer":"","%Name":"Objects","depth":0,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"v2","%Name":"inst_FA4D420","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_FA4D420","objectId":{"name":"obj_BgMusic2","path":"objects/obj_BgMusic2/obj_BgMusic2.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":176.0,"y":32.0,},
         {"$GMRInstance":"v2","%Name":"inst_14F8BF96","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_14F8BF96","objectId":{"name":"obj_Pause","path":"objects/obj_Pause/obj_Pause.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":32.0,},
         {"$GMRInstance":"v2","%Name":"inst_47ABC67B","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_47ABC67B","objectId":{"name":"obj_JournalPickup","path":"objects/obj_JournalPickup/obj_JournalPickup.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":400.0,"y":368.0,},
         {"$GMRInstance":"v2","%Name":"inst_2091CB7F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2091CB7F","objectId":{"name":"obj_HaabClue","path":"objects/obj_HaabClue/obj_HaabClue.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":416.0,"y":800.0,},

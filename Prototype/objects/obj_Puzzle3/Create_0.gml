@@ -36,13 +36,20 @@ help = false;	// true if help icon is clicked
 puzzle_solved = false;
 solution = [7, 3, 3, 0];	// Answer: 4 Ajaw 8 Kumk'u
 explain = false;
+confetti = false;
 
 
 // Run puzzle
 run_puzzle = function () {
-	// Check if puzzle is solved
-	if (explain) {
-		return;
+	// Explanation is dimissed, play confetti
+	if (explain && !puzzle_solved && mouse_check_button_pressed(mb_left)) {
+		confetti = true;
+	}
+	
+	// Check if puzzle is solved to play confetti
+	if (!puzzle_solved && confetti) {	// Flags to ensure alarm gets called once
+		puzzle_solved = true;
+		alarm[0] = 60;
 	}
 	
 	var mx = device_mouse_x_to_gui(0);
@@ -115,22 +122,12 @@ run_puzzle = function () {
 
 // Draw puzzle
 draw_puzzle = function () {
-	if (puzzle_solved) {
-		// Draw victory message and continue button
-		draw_set_color(c_white);
-		draw_text(250, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
-		
-		if(draw_continue_button(860, 520)) {
-			solve_puzzle();
-		}
-
+	if (confetti) {
+		draw_sprite(ConfettiWin_spr, -1, 0, 0);
 	}
 	else if (explain && !puzzle_solved) {
 		// Draw explanation sprite
 		draw_sprite(Wheel_EndEx, 0, 960, 540);
-		if (mouse_check_button_pressed(mb_left)) {
-			puzzle_solved = true;
-		}
 	}
 	else {
 		// Draw wheels
@@ -178,20 +175,4 @@ draw_puzzle = function () {
 			draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
 		}
 	}
-};
-
-// Puzzle is solved, so trigger something
-solve_puzzle = function() {
-	// Clean up and trigger external action
-	global.puzzle_active = false;
-	
-	with(obj_PuzzleManager) {
-		current_puzzle = noone;
-	}
-	
-	// Spawn portal
-	instance_create_layer(1504, 160, "Objects", obj_Portal);
-
-	// Destroy the puzzle after it's solved
-	instance_destroy();
 };

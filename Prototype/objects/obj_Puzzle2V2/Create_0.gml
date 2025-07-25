@@ -1,4 +1,5 @@
 puzzle_solved = false;
+confetti = false;
 
 current_round = 0;	// Tracks which round we're on (0-2)
 total_rounds = 3;
@@ -41,9 +42,10 @@ run_round(current_round);	// Start the first round
 
 // Run puzzle
 run_puzzle = function () {
-	// Check if puzzle is solved
-	if (puzzle_solved) {
-		return;
+	// Check if puzzle is finished to play confetti
+	if (!puzzle_finished && confetti) {	// Flags to ensure alarm gets called once
+		puzzle_finished = true;
+		alarm[0] = 60;
 	}
 	
 	var mx = device_mouse_x_to_gui(0);
@@ -86,7 +88,10 @@ run_puzzle = function () {
 
 // Draw puzzle
 draw_puzzle = function () {
-	if (puzzle_solved && !puzzle_finished) {
+	if (confetti) {
+		draw_sprite(ConfettiWin_spr, -1, 0, 0);
+	}
+	else if (puzzle_solved && !puzzle_finished) {
 		// Hide the pieces
 		with (obj_Puzzle2PieceV2) {
 			visible = false;
@@ -106,16 +111,8 @@ draw_puzzle = function () {
 				run_round(current_round);
 			}
 			else {	// Last round is finished
-				puzzle_finished = true;
+				confetti = true;	// puzzle_finished
 			}
-		}
-	}
-	else if (puzzle_finished) {
-		draw_set_color(c_white);
-		draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
-		
-		if(draw_continue_button(860, 520)) {
-			solve_puzzle();
 		}
 	}
 	else {	// Draw puzzle
@@ -138,20 +135,4 @@ draw_puzzle = function () {
 		draw_sprite(help_instr.sprite, 0, help_instr.x, help_instr.y);
 		draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
 	}
-};
-
-// Puzzle is solved, so trigger something
-solve_puzzle = function() {
-	// Clean up and trigger external action
-	global.puzzle_active = false;
-	
-	with(obj_PuzzleManager) {
-		current_puzzle = noone;
-	}
-	
-	// Spawn portal
-	instance_create_layer(1490, 144, "Objects", obj_Portal);
-	
-	// Destroy the puzzle after it's solved
-	instance_destroy();
 };

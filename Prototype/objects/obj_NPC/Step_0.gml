@@ -4,6 +4,7 @@ var player_in_range = in_range();
 if (player_in_range) {
 	talk = true;
 	sprite_index = NPC_Talk;
+	audio_play_sound(cartoon_voice, 1, true);
 }
 else {
 	talk = false;

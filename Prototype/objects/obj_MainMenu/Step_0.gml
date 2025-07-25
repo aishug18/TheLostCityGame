@@ -3,12 +3,12 @@ if (mouse_check_button_pressed(mb_left)) {
 	var my = device_mouse_y_to_gui(0);
 	
 	// Start game
-	if (point_in_rectangle(mx, my, button_start.x, button_start.y, button_start.x + button_start.w, button_start.y + button_start.h)) {
+	if (point_in_rectangle(mx, my, button_start.x, button_start.y, button_start.x + sprite_get_width(button_start.sprite), button_start.y + sprite_get_height(button_start.sprite))) {
 		room_goto_next();
 	}
 	
 	// Show how to play screen
-	if (point_in_rectangle(mx, my, btn_howtoplay.x, btn_howtoplay.y, btn_howtoplay.x + btn_howtoplay.w, btn_howtoplay.y + btn_howtoplay.h)) {
+	if (point_in_rectangle(mx, my, btn_howtoplay.x, btn_howtoplay.y, btn_howtoplay.x + sprite_get_width(btn_howtoplay.sprite), btn_howtoplay.y + sprite_get_height(btn_howtoplay.sprite))) {
 		how_to_play = true;
 	}
 	

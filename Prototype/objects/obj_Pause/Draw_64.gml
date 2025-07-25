@@ -14,23 +14,6 @@ if (paused) {
 		draw_sprite(btn_back.sprite, 0, btn_back.x, btn_back.y);
 	}
 	else {
-
-    draw_set_color(c_white);
-    draw_set_halign(fa_center);
-    draw_text(display_get_gui_width()/2, 300, "PAUSED");
-    
-	// Buttons
-	draw_set_color(c_white);
-	draw_rectangle(btn_howtoplay.x, btn_howtoplay.y, btn_howtoplay.x + btn_howtoplay.w, btn_howtoplay.y + btn_howtoplay.h, false);
-	
-	draw_set_color(c_black);
-	draw_text(btn_howtoplay.x + btn_howtoplay.w/2, btn_howtoplay.y + btn_howtoplay.h/2, "How To Play");
-	
-	draw_sprite(btn_resume.sprite, 0, btn_resume.x, btn_resume.y);
-	draw_sprite(btn_restart.sprite, 0, btn_restart.x, btn_restart.y);
-	//draw_sprite(btn_howtoplay.sprite, 0, btn_howtoplay.x, btn_howtoplay.y);
-	draw_sprite(btn_quit.sprite, 0, btn_quit.x, btn_quit.y);
-	
-	draw_set_halign(fa_left);
+		draw_sprite(spr_Pause, 0, 0, 0);
 	}
 }

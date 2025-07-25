@@ -1,5 +1,6 @@
 // Puzzle state
 puzzle_solved = false;
+confetti = false;
 state = "browse";	// "browse", "selecting", "complete", "done"
 
 // Item list
@@ -30,7 +31,7 @@ correct_collected = 0;	// count of correct items
 required_items = 4;	// total required items to find
 
 // Button positions
-btn_putBack = { x: 450, y: 710, sprite: Pu4_btndrop };	// later change to just position and sprite
+btn_putBack = { x: 450, y: 710, sprite: Pu4_btndrop };
 btn_store = { x: 1030, y: 710, sprite: Pu4_btnkeep };
 
 // Help
@@ -41,9 +42,10 @@ help = false;	// true if help icon is clicked
 
 // Run puzzle
 run_puzzle = function () {
-	// Check if puzzle is solved
-	if (puzzle_solved) {
-		return;
+	// Check if puzzle is solved to play confetti
+	if (!puzzle_solved && confetti) {	// Flags to ensure alarm gets called once
+		puzzle_solved = true;
+		alarm[0] = 60;
 	}
 	
 	// run actual puzzle
@@ -114,26 +116,16 @@ run_puzzle = function () {
 	}
 	else if (state == "complete") {
 		if (mouse_check_button_pressed(mb_left)) {
-			puzzle_solved = true;
+			confetti = true;	// puzzle is done, play confetti
 		}
     }
-	
-	
 };
 
 // Draw puzzle
 draw_puzzle = function () {
-	if (puzzle_solved) {
-		// Draw victory message and continue button
-		draw_set_color(c_white);
-		draw_text(730, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
-		
-		if(draw_continue_button(860, 520)) {
-			solve_puzzle();
-		}
+	if (confetti) {
+		draw_sprite(ConfettiWin_spr, -1, 0, 0);
 	}
-	
-	// Draw actual puzzle
 	else {
 		// Draw background
 		draw_sprite(Puzzle4_bg, 0, 0, 0);
@@ -193,21 +185,4 @@ draw_puzzle = function () {
 			draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
 		}
 	}
-	
-};
-
-// Puzzle is solved, so trigger something
-solve_puzzle = function() {
-	// Clean up and trigger external action
-	global.puzzle_active = false;
-	
-	with(obj_PuzzleManager) {
-		current_puzzle = noone;
-	}
-	
-	// Spawn portal
-	instance_create_layer(128, 849, "Objects", obj_Portal);
-
-	// Destroy the puzzle after it's solved
-	instance_destroy();
 };
