@@ -3,7 +3,7 @@ if (mouse_check_button_pressed(mb_left)) {
 	var my = device_mouse_y_to_gui(0);
 	
 	// Quit game
-	if (point_in_rectangle(mx, my, btn_quit.x, btn_quit.y, btn_quit.x + btn_quit.w, btn_quit.y + btn_quit.h)) {
+	if (point_in_rectangle(mx, my, btn_quit.x, btn_quit.y, btn_quit.x + sprite_get_width(btn_quit.sprite), btn_quit.y + sprite_get_height(btn_quit.sprite))) {
 		game_end();
 	}
 }
