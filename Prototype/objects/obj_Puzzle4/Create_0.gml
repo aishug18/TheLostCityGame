@@ -1,4 +1,4 @@
-// Puzzle state
+C// Puzzle state
 puzzle_solved = false;
 state = "browse";	// "browse", "selecting", "complete", "done"
 
