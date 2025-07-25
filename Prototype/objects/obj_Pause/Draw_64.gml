@@ -11,10 +11,7 @@ if (paused) {
 		draw_sprite(Instr3_spr, 0, 960, 697);
 		draw_sprite(Instr1_spr, 0, 960, 947);
 		
-		draw_set_color(c_white);
-		draw_rectangle(btn_back.x, btn_back.y, btn_back.x + btn_back.w, btn_back.y + btn_back.h, false);
-		draw_set_color(c_black);
-		draw_text(btn_back.x + btn_back.w/2, btn_back.y + btn_back.h/2, "Back");
+		draw_sprite(btn_back.sprite, 0, btn_back.x, btn_back.y);
 	}
 	else {
 

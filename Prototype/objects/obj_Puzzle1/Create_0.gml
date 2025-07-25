@@ -38,8 +38,13 @@ option_selected = [
 opt_radius = 40;
 
 submit_btn = { x: 980, y: 910, sprite: SubmitBtn };
-
 next_btn = { x: 980, y: 910, sprite: NextBtn };
+
+// Help
+help_btn = {x: 95, y: 985, sprite: Help_spr };
+help_instr = {x: 390, y: 95, sprite: Puzzle1_Instr };
+back_btn = {x: 790, y: 480, sprite: BackBtn_spr };
+help = false;	// true if help icon is clicked
 
 puzzle_solved = false;
 
@@ -53,6 +58,18 @@ run_puzzle = function () {
 	
 	var mx = device_mouse_x_to_gui(0);
 	var my = device_mouse_y_to_gui(0);
+	
+	// Check if help icon is clicked
+	if (mouse_check_button_pressed(mb_left) && point_in_circle(mx, my, help_btn.x, help_btn.y, 54)) {
+		help = true;
+	}
+	
+	// Check if back button is clicked when help is shown
+	if (mouse_check_button_pressed(mb_left) && help && 
+		point_in_rectangle(mx, my, back_btn.x, back_btn.y, back_btn.x + sprite_get_width(back_btn.sprite), back_btn.y + sprite_get_height(back_btn.sprite))) {
+		
+		help = false;
+	}
 	
 	// Check if option is selected, either where the text is or the circle
 	for (var i = 0; i < 4; i++) {
@@ -107,6 +124,9 @@ draw_puzzle = function () {
 		if (selected_index != -1 && !answered_correct) {
 			draw_sprite(submit_btn.sprite, 0, submit_btn.x, submit_btn.y);
 		}
+		
+		// Draw help button
+		draw_sprite(help_btn.sprite, 0, help_btn.x, help_btn.y);
 
 		// Feedback
 		if (answered_correct) {
@@ -129,6 +149,17 @@ draw_puzzle = function () {
 		        draw_set_color(c_black);
 				draw_text(350, 400, "Incorrect. Try again");	// fix this, disappears too soon
 		    }
+		}
+		
+		if (help) {
+			// Background
+			draw_set_color(c_black);
+			draw_set_alpha(0.4);
+			draw_rectangle(0, 0, 1920, 1080, false);
+			draw_set_alpha(1);
+			
+			draw_sprite(help_instr.sprite, 0, help_instr.x, help_instr.y);
+			draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
 		}
 	}
 	else {

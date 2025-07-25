@@ -13,7 +13,7 @@ if (mouse_check_button_pressed(mb_left)) {
 	}
 	
 	// Go back to pause from how to play
-	if (how_to_play && point_in_rectangle(mx, my, btn_back.x, btn_back.y, btn_back.x + btn_back.w, btn_back.y + btn_back.h)) {
+	if (how_to_play && point_in_rectangle(mx, my, btn_back.x, btn_back.y, btn_back.x + sprite_get_width(btn_back.sprite), btn_back.y + sprite_get_height(btn_back.sprite))) {
 		how_to_play = false;
 	}
 	

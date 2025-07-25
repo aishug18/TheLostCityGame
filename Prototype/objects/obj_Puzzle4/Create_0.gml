@@ -1,4 +1,4 @@
-C// Puzzle state
+// Puzzle state
 puzzle_solved = false;
 state = "browse";	// "browse", "selecting", "complete", "done"
 
@@ -33,6 +33,12 @@ required_items = 4;	// total required items to find
 btn_putBack = { x: 450, y: 710, sprite: Pu4_btndrop };	// later change to just position and sprite
 btn_store = { x: 1030, y: 710, sprite: Pu4_btnkeep };
 
+// Help
+help_btn = {x: 95, y: 985, sprite: Help_spr };
+help_instr = {x: 429, y: 138, sprite: Puzzle4_Instr };
+back_btn = {x: 790, y: 480, sprite: BackBtn_spr };
+help = false;	// true if help icon is clicked
+
 // Run puzzle
 run_puzzle = function () {
 	// Check if puzzle is solved
@@ -43,6 +49,18 @@ run_puzzle = function () {
 	// run actual puzzle
 	var mx = device_mouse_x_to_gui(0);
 	var my = device_mouse_y_to_gui(0);
+	
+	// Check if help icon is clicked
+	if (mouse_check_button_pressed(mb_left) && point_in_circle(mx, my, help_btn.x, help_btn.y, 54)) {
+		help = true;
+	}
+	
+	// Check if back button is clicked when help is shown
+	if (mouse_check_button_pressed(mb_left) && help && 
+		point_in_rectangle(mx, my, back_btn.x, back_btn.y, back_btn.x + sprite_get_width(back_btn.sprite), back_btn.y + sprite_get_height(back_btn.sprite))) {
+		
+		help = false;
+	}
 	
 	if (state == "browse") {
 		// Check for item click
@@ -159,6 +177,20 @@ draw_puzzle = function () {
 		else if (state == "complete") {
 			draw_sprite(Puzzle4_Finalbg, 0, 0, 0);
 			draw_sprite(Puzzle4_FinalEx, 0, 32, 16);
+		}
+		
+		// Draw help button
+		draw_sprite(help_btn.sprite, 0, help_btn.x, help_btn.y);
+		
+		if (help) {
+			// Background
+			draw_set_color(c_black);
+			draw_set_alpha(0.4);
+			draw_rectangle(0, 0, 1920, 1080, false);
+			draw_set_alpha(1);
+			
+			draw_sprite(help_instr.sprite, 0, help_instr.x, help_instr.y);
+			draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
 		}
 	}
 	
