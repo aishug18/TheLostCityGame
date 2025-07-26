@@ -128,6 +128,7 @@
     {"id":{"name":"BackBtn_spr","path":"sprites/BackBtn_spr/BackBtn_spr.yy",},},
     {"id":{"name":"ConfettiWin_spr","path":"sprites/ConfettiWin_spr/ConfettiWin_spr.yy",},},
     {"id":{"name":"ContinueBtn_spr","path":"sprites/ContinueBtn_spr/ContinueBtn_spr.yy",},},
+    {"id":{"name":"Correct_spr","path":"sprites/Correct_spr/Correct_spr.yy",},},
     {"id":{"name":"Credits_spr","path":"sprites/Credits_spr/Credits_spr.yy",},},
     {"id":{"name":"GameTitle_spr","path":"sprites/GameTitle_spr/GameTitle_spr.yy",},},
     {"id":{"name":"HaabKey_spr","path":"sprites/HaabKey_spr/HaabKey_spr.yy",},},
