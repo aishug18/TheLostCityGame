@@ -118,6 +118,7 @@
     {"id":{"name":"Clue_or_Prop","path":"sounds/Clue_or_Prop/Clue_or_Prop.yy",},},
     {"id":{"name":"Clue_or_prop2","path":"sounds/Clue_or_prop2/Clue_or_prop2.yy",},},
     {"id":{"name":"Death","path":"sounds/Death/Death.yy",},},
+    {"id":{"name":"forest_nature","path":"sounds/forest_nature/forest_nature.yy",},},
     {"id":{"name":"jump_sound","path":"sounds/jump_sound/jump_sound.yy",},},
     {"id":{"name":"lose_sound","path":"sounds/lose_sound/lose_sound.yy",},},
     {"id":{"name":"lose_sound2","path":"sounds/lose_sound2/lose_sound2.yy",},},
