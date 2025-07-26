@@ -27,6 +27,7 @@ y_speed += grav;
 // Jump
 if (jumpKey && on_ground) {
 	y_speed = jump_speed;
+	audio_play_sound(jump_sound, 1, false);
 }
 
 // Cap falling speed

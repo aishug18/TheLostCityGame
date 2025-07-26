@@ -1,3 +1,11 @@
+// let player collect 4 items (store them in their journal). If at least one of the items are the wrong
+// items, then show incorrect message, wait a few seconds, then restart. empty the journal of collected
+// items and restart puzzle.
+// if all four collected items are correct, then show final image.
+
+// audio_play_sound(lose_sound, 1, false);
+// audio_play_sound(Win_sound, 1, false);
+
 // Puzzle state
 puzzle_solved = false;
 confetti = false;

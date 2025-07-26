@@ -4,5 +4,8 @@ if (place_meeting(x, y, obj_Player)) {
 	}
 	array_push(global.level_2_clues, _id);
 	
-	instance_destroy();
+	audio_play_sound(Clue_or_Prop, 1, false);
+	
+	collected = true;
+	alarm[0] = 90;
 }

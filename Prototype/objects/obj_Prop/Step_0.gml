@@ -1,5 +1,10 @@
 if (place_meeting(x, y, obj_Player)) {
 	hide_sprite = true;
+	play_audio = true;
+}
+
+if (play_audio && !global.prop) {
+	audio_play_sound(Clue_or_prop2, 1, false);
 	global.prop = true;
 }
 

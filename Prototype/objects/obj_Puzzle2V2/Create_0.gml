@@ -16,6 +16,7 @@ help_btn = {x: 95, y: 985, sprite: Help_spr };
 help_instr = {x: 412, y: 128, sprite: Puzzle2_Instr };
 back_btn = {x: 790, y: 480, sprite: BackBtn_spr };
 help = false;	// true if help icon is clicked
+play_audio = false;
 
 // Spawns the correct pieces for each round
 run_round = function(index) {
@@ -82,8 +83,13 @@ run_puzzle = function () {
 	}
 	
 	if (all_correct) {
-		puzzle_solved = true;
+		play_audio = true;
 	}
+	if (!puzzle_solved && play_audio) {
+		puzzle_solved = true;
+		audio_play_sound(Win_sound, 1, false);
+	}
+	
 };
 
 // Draw puzzle
@@ -108,6 +114,7 @@ draw_puzzle = function () {
 			if (current_round < total_rounds - 1) {	// More rounds to go
 				current_round++;
 				puzzle_solved = false;
+				play_audio = false;
 				run_round(current_round);
 			}
 			else {	// Last round is finished

@@ -35,6 +35,7 @@ help = false;	// true if help icon is clicked
 // State flags
 puzzle_solved = false;
 solution = [7, 3, 3, 0];	// Answer: 4 Ajaw 8 Kumk'u
+incorrect = false;
 explain = false;
 confetti = false;
 
@@ -87,9 +88,11 @@ run_puzzle = function () {
 		if(instance_exists(w) && w.active) {
 			if (keyboard_check_pressed(vk_left)) {
 				w.turn(1);	// left = counterclockwise
+				incorrect = false;	// dismiss incorrect message
 			}
 			if (keyboard_check_pressed(vk_right)) {
 				w.turn(-1);	// right = clockwise
+				incorrect = false;
 			}
 		}
 	}
@@ -101,21 +104,20 @@ run_puzzle = function () {
 		for (var i = 0; i < 4; i++) {
 			if (wheels[i].current_index != solution[i]) {
 				correct = false;
+				incorrect = true;
+				audio_play_sound(lose_sound, 1, false);
 				break;
 			}
 		}
 		
 		if(correct) {
+			audio_play_sound(Win_sound, 1, false);
 			explain = true;
 			
 			// Deactivate wheels so player can't keep spinning them
 			for (var i = 0; i < 4; i++) {
 				wheels[i].active = false;
 			}
-		}
-		else {
-			// Show "wrong" feedback
-			draw_text(1100, 600, "Incorrect combination!");
 		}
 	}
 };
@@ -126,6 +128,8 @@ draw_puzzle = function () {
 		draw_sprite(ConfettiWin_spr, -1, 0, 0);
 	}
 	else if (explain && !puzzle_solved) {
+		// Draw correct sprite
+		draw_sprite(Correct_spr, 0, -65, 65);
 		// Draw explanation sprite
 		draw_sprite(Wheel_EndEx, 0, 960, 540);
 	}
@@ -173,6 +177,10 @@ draw_puzzle = function () {
 			
 			draw_sprite(help_instr.sprite, 0, help_instr.x, help_instr.y);
 			draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
+		}
+		
+		if (incorrect) {
+			draw_sprite(Incorrect_spr, 0, 830, 510);
 		}
 	}
 };

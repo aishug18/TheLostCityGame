@@ -48,6 +48,7 @@ help = false;	// true if help icon is clicked
 
 puzzle_solved = false;
 confetti = false;
+incorrect = false;
 
 
 // Run puzzle
@@ -119,7 +120,7 @@ draw_puzzle = function () {
 				draw_sprite(TutPuzzle_AnswerDot, 0, option_selected[i].x, option_selected[i].y);
 			}
 			draw_set_color(c_black);
-			draw_text(option_btns[i].x + 10, option_btns[i].y + 10, question.options[i]);
+			draw_text(option_btns[i].x + 10, option_btns[i].y + 10, question.options[i]);	// replace with sprite
 		}
 
 		// Draw submit button	
@@ -132,8 +133,7 @@ draw_puzzle = function () {
 
 		// Feedback
 		if (answered_correct) {
-			draw_set_color(c_black);
-		    draw_text(350, 400, "Correct!");
+			draw_sprite(Correct_spr, 0, 450, 857); // or 200x320
     
 		    if (show_next_button) {
 				draw_sprite(next_btn.sprite, 0, next_btn.x, next_btn.y);
@@ -146,11 +146,20 @@ draw_puzzle = function () {
 		    if (selected_index == question_data[current_question].correct_index) {
 		        answered_correct = true;
 		        show_next_button = true;
+				incorrect = false;
+				audio_play_sound(Win_sound, 1, false);
 		    }
 		    else {
-		        draw_set_color(c_black);
-				draw_text(350, 400, "Incorrect. Try again");	// fix this, disappears too soon
+				incorrect = true;
+				audio_play_sound(lose_sound, 1, false);
 		    }
+		}
+		if (incorrect) {
+			draw_sprite(Incorrect_spr, 0, 415, 865); // or 275x235
+			
+			if (current_question == 1) {	// on the second round, show explanation
+				draw_sprite(TutPuzzle_failEx, 0, 960, 130);
+			}
 		}
 		
 		if (help) {
