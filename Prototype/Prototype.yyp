@@ -30,6 +30,7 @@
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"intro.mp4","CopyToMask":-1,"filePath":"datafiles","name":"intro.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"outro.mp4","CopyToMask":-1,"filePath":"datafiles","name":"outro.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"ston.mp4","CopyToMask":-1,"filePath":"datafiles","name":"ston.mp4","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
@@ -129,6 +130,7 @@
     {"id":{"name":"music4","path":"sounds/music4/music4.yy",},},
     {"id":{"name":"music5","path":"sounds/music5/music5.yy",},},
     {"id":{"name":"music6","path":"sounds/music6/music6.yy",},},
+    {"id":{"name":"stone_sound","path":"sounds/stone_sound/stone_sound.yy",},},
     {"id":{"name":"wheel_turning","path":"sounds/wheel_turning/wheel_turning.yy",},},
     {"id":{"name":"Win_sound","path":"sounds/Win_sound/Win_sound.yy",},},
     {"id":{"name":"win_sound2","path":"sounds/win_sound2/win_sound2.yy",},},
