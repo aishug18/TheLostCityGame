@@ -1,7 +1,7 @@
 {
   "$GMSprite":"",
   "%Name":"Prop3_snakes",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":61,
   "bbox_left":7,
   "bbox_right":57,

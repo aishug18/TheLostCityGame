@@ -7,5 +7,6 @@ if (place_meeting(x, y, obj_Player) && !collected) {
 	audio_play_sound(Clue_or_Prop, 1, false);
 	
 	collected = true;
-	alarm[0] = 90;
+	sprite_index = CollectClue_spr;
+	alarm[0] = 80;
 }

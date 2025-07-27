@@ -45,9 +45,6 @@ add_clue = function(_id, _sprite, _x, _y) {
 		else if (room == rm_Stage4) {
 			array_push(global.level_4_clues, _id);
 		}
-	
-		// play audio effect
-		// audio_play_sound(* sound effect file *, 1, false);
 	}
 };
 
@@ -57,6 +54,7 @@ journal_remove_clue_by_id = function(_id) {
 		var c = ds_list_find_value(clues, i);
 		if (c.id == _id) {
 			ds_list_delete(clues, i);
+			current_page = 0;
 			break;
 		}
 	}

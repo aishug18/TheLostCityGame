@@ -1,18 +1,11 @@
-if (place_meeting(x, y, obj_Player)) {
+if (place_meeting(x, y, obj_Player) && !journal_acquired) {
 	journal_acquired = true;
-	hide_sprite = true;
 	
 	// Show journal icon on GUI
 	obj_JournalIconGUI.is_visible = true;
 	
 	audio_play_sound(Clue_or_Prop, 1, false);
 	
-	instance_destroy();
-	
-	// Dismiss sprite if player didn't click yet
-	//alarm[0] = 100;
+	sprite_index = CollectClue_spr;
+	alarm[0] = 80;
 }
-
-//if (journal_acquired && mouse_check_button_pressed(mb_left)) {
-//	instance_destroy();
-//}

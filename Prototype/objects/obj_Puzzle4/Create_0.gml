@@ -1,15 +1,8 @@
-// let player collect 4 items (store them in their journal). If at least one of the items are the wrong
-// items, then show incorrect message, wait a few seconds, then restart. empty the journal of collected
-// items and restart puzzle.
-// if all four collected items are correct, then show final image.
-
-// audio_play_sound(lose_sound, 1, false);
-// audio_play_sound(Win_sound, 1, false);
-
 // Puzzle state
 puzzle_solved = false;
 confetti = false;
 state = "browse";	// "browse", "selecting", "complete", "done"
+incorrect = false;
 
 // Item list
 item_list = [
@@ -33,9 +26,12 @@ prop_list = [
 	
 ];
 
+// Collected items by player
+collected_items = [];
+
 // Variables
 selected_item = -1;	// index in item_list
-correct_collected = 0;	// count of correct items
+collected = 0;	// count of correct items
 required_items = 4;	// total required items to find
 
 // Button positions
@@ -56,7 +52,6 @@ run_puzzle = function () {
 		alarm[0] = 60;
 	}
 	
-	// run actual puzzle
 	var mx = device_mouse_x_to_gui(0);
 	var my = device_mouse_y_to_gui(0);
 	
@@ -72,7 +67,7 @@ run_puzzle = function () {
 		help = false;
 	}
 	
-	if (state == "browse") {
+	if (state == "browse") {	// browsing for items
 		// Check for item click
 		for (var i = 0; i < array_length(item_list); i++) {
 			var item = item_list[i];
@@ -88,7 +83,7 @@ run_puzzle = function () {
 			}
 		}
 	}
-	else if (state == "selecting") {
+	else if (state == "selecting") {	// selected an item
 		// Button interactions
 		if (mouse_check_button_pressed(mb_left)) {
 			// Put back item
@@ -107,13 +102,12 @@ run_puzzle = function () {
 				}
 				array_push(global.level_4_clues, item.id);
 				
-                // Check if it's correct
-                if (item.correct) {
-                    correct_collected += 1;
-                }
-
+				// Add to collected items
+				array_push(collected_items, item.id);
+                collected += 1;
+				
                 selected_item = -1;
-                if (correct_collected >= required_items) {
+                if (collected >= required_items) {
                     state = "complete";
                 }
 				else {
@@ -122,11 +116,66 @@ run_puzzle = function () {
             }
         }
 	}
-	else if (state == "complete") {
+	else if (state == "complete") {	// chose 4 items
+		// Check if the items collected were correct
+		correct1 = false;
+		correct2 = false;
+		correct3 = false;
+		correct4 = false;
+		chosen1 = collected_items[0];
+		chosen2 = collected_items[1];
+		chosen3 = collected_items[2];
+		chosen4 = collected_items[3];
+		
+		for (var i = 0; i < array_length(item_list); i++) {
+			if (item_list[i].id == chosen1 && item_list[i].correct) {
+				correct1 = true;
+			}
+			else if (item_list[i].id == chosen2 && item_list[i].correct) {
+				correct2 = true;
+			}
+			else if (item_list[i].id == chosen3 && item_list[i].correct) {
+				correct3 = true;
+			}
+			else if (item_list[i].id == chosen4 && item_list[i].correct) {
+				correct4 = true;
+			}
+		}
+		
+		if (correct1 && correct2 && correct3 && correct4) {	// all 4 collected items are correct
+			audio_play_sound(Win_sound, 1, false);
+			state = "done";
+		} else {	// one or more collected items is wrong
+			incorrect = true;
+			
+			audio_play_sound(lose_sound, 1, false);
+			
+			alarm[1] = 90;	// show incorrect message for a little
+			
+			// Restart puzzle and clean up state
+			for (var i = 0; i < array_length(item_list); i++) {
+				item_list[i].selected = false;
+			}
+			
+			for (var i = 0; i < 4; i++) {
+				with (obj_JournalManager) {
+					journal_remove_clue_by_id(other.collected_items[i]);
+				}
+				var index = array_get_index(global.level_4_clues, collected_items[i]);
+				array_delete(global.level_4_clues, index, 1);
+			}
+			
+			collected_items = [];
+			collected = 0;
+			
+			state = "browse";
+		}
+    }
+	else if (state == "done") {	// solved correctly
 		if (mouse_check_button_pressed(mb_left)) {
 			confetti = true;	// puzzle is done, play confetti
 		}
-    }
+	}
 };
 
 // Draw puzzle
@@ -146,7 +195,7 @@ draw_puzzle = function () {
 		
 		// Score display
 		draw_set_color(c_white);
-		draw_text(1710, 50, string(correct_collected) + " / " + string(required_items));
+		draw_text(1710, 50, string(collected) + " / " + string(required_items));
 		
 		if (state == "browse") {
 			// Draw all visible items
@@ -174,9 +223,13 @@ draw_puzzle = function () {
 			draw_sprite(btn_putBack.sprite, 0, btn_putBack.x, btn_putBack.y);
 			draw_sprite(btn_store.sprite, 0, btn_store.x, btn_store.y);
 		}
-		else if (state == "complete") {
+		else if (state == "done") {	// Show final image
 			draw_sprite(Puzzle4_Finalbg, 0, 0, 0);
 			draw_sprite(Puzzle4_FinalEx, 0, 32, 16);
+		}
+		
+		if (incorrect) {	// Show incorrect sprite
+			draw_sprite(Incorrect_spr, 0, 710, 20);
 		}
 		
 		// Draw help button
