@@ -48,6 +48,7 @@
     {"id":{"name":"obj_EndCredits","path":"objects/obj_EndCredits/obj_EndCredits.yy",},},
     {"id":{"name":"obj_GameInit","path":"objects/obj_GameInit/obj_GameInit.yy",},},
     {"id":{"name":"obj_Ground","path":"objects/obj_Ground/obj_Ground.yy",},},
+    {"id":{"name":"obj_GuiMaster","path":"objects/obj_GuiMaster/obj_GuiMaster.yy",},},
     {"id":{"name":"obj_HaabClue","path":"objects/obj_HaabClue/obj_HaabClue.yy",},},
     {"id":{"name":"obj_HaabWheel","path":"objects/obj_HaabWheel/obj_HaabWheel.yy",},},
     {"id":{"name":"obj_HalfGround","path":"objects/obj_HalfGround/obj_HalfGround.yy",},},

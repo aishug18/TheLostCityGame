@@ -6,22 +6,22 @@ active_wheel_index = 0;
 wheels = [];
 
 // Place wheels in wheels array
-var wheel_1 = instance_create_layer(460, 545, "Objects", obj_NumWheel1);
+var wheel_1 = instance_create_layer(460, 545, "Puzzle", obj_NumWheel1);
 wheel_1.index = 0;	// Identify wheel
 wheel_1.active = true;	// The first wheel is selected by default
 array_push(wheels, wheel_1);
 
-var wheel_2 = instance_create_layer(456, 551, "Objects", obj_TzolkinWheel);
+var wheel_2 = instance_create_layer(456, 551, "Puzzle", obj_TzolkinWheel);
 wheel_2.index = 1;
 wheel_2.active = false;	// Other wheels are not selected
 array_push(wheels, wheel_2);
 
-var wheel_3 = instance_create_layer(462, 556, "Objects", obj_NumWheel2);
+var wheel_3 = instance_create_layer(462, 556, "Puzzle", obj_NumWheel2);
 wheel_3.index = 2;
 wheel_3.active = false;
 array_push(wheels, wheel_3);
 
-var wheel_4 = instance_create_layer(460, 547, "Objects", obj_HaabWheel);
+var wheel_4 = instance_create_layer(460, 547, "Puzzle", obj_HaabWheel);
 wheel_4.index = 3;
 wheel_4.active = false;
 array_push(wheels, wheel_4);

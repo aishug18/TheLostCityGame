@@ -4,12 +4,22 @@ current_question = 0;
 question_data = [
 	{
 		sprite: TutPuzzle16,
-		options: ["21", "6", "16", "9"],
+		options: [ 
+					{ x: 320, y: 466, sprite: MathNum_21 },
+					{ x: 312, y: 604, sprite: MathNum_6 },
+					{ x: 315, y: 740, sprite: MathNum_16 },
+					{ x: 318, y: 881, sprite: MathNum_9 }
+		],
 		correct_index: 2
 	},
 	{
 		sprite: TutPuzzle73,
-		options: ["185", "20", "18", "73"],
+		options: [ 
+					{ x: 326, y: 464, sprite: MathNum_185 },
+					{ x: 323, y: 604, sprite: MathNum_20 },
+					{ x: 331, y: 743, sprite: MathNum_18 },
+					{ x: 333, y: 880, sprite: MathNum_73 }
+		],
 		correct_index: 3
 	},
 ];
@@ -119,8 +129,8 @@ draw_puzzle = function () {
 			if (i == selected_index) {
 				draw_sprite(TutPuzzle_AnswerDot, 0, option_selected[i].x, option_selected[i].y);
 			}
-			draw_set_color(c_black);
-			draw_text(option_btns[i].x + 10, option_btns[i].y + 10, question.options[i]);	// replace with sprite
+			
+			draw_sprite(question.options[i].sprite, 0, question.options[i].x, question.options[i].y);
 		}
 
 		// Draw submit button	
@@ -155,7 +165,7 @@ draw_puzzle = function () {
 		    }
 		}
 		if (incorrect) {
-			draw_sprite(Incorrect_spr, 0, 415, 865); // or 275x235
+			draw_sprite(Incorrect_spr, 0, 460, 865); // or 275x235
 			
 			if (current_question == 1) {	// on the second round, show explanation
 				draw_sprite(TutPuzzle_failEx, 0, 960, 130);
