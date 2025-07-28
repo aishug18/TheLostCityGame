@@ -162,6 +162,7 @@
     {"id":{"name":"MathNum_6","path":"sprites/MathNum_6/MathNum_6.yy",},},
     {"id":{"name":"MathNum_73","path":"sprites/MathNum_73/MathNum_73.yy",},},
     {"id":{"name":"MathNum_9","path":"sprites/MathNum_9/MathNum_9.yy",},},
+    {"id":{"name":"Mathpuzzle_instruc","path":"sprites/Mathpuzzle_instruc/Mathpuzzle_instruc.yy",},},
     {"id":{"name":"MenuBg_spr","path":"sprites/MenuBg_spr/MenuBg_spr.yy",},},
     {"id":{"name":"MenuHowTo_btn","path":"sprites/MenuHowTo_btn/MenuHowTo_btn.yy",},},
     {"id":{"name":"MenuQuit_btn","path":"sprites/MenuQuit_btn/MenuQuit_btn.yy",},},
