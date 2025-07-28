@@ -21,7 +21,7 @@ if (keyboard_check_pressed(vk_escape)) {	// Toggle pause
 		
 		// Deactivate everything other than this instance
 		instance_deactivate_all(true);
-		// this doesn't bause animating sprites or room backgrounds
+		// this doesn't pause animating sprites or room backgrounds
 		
 		// Capture this game moment (won't capture draw GUI contents though)
 		pause_surface = surface_create(res_w, res_h);

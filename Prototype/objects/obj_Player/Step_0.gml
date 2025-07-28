@@ -1,6 +1,7 @@
 if (global.puzzle_active) exit;	// in puzzle mode
 if (instance_exists(obj_JournalManager) && obj_JournalManager.journal_open) exit;	// opened journal
 if (global.prop) exit;	// prop description, so stop moving
+if (dead) exit;	// died so stop movement
 
 // ---- Input ----
 
@@ -15,7 +16,7 @@ move_direction = rightKey - leftKey;
 
 x_speed = move_direction * move_speed;
 
-if (place_meeting(x + x_speed, y, obj_Solid) || dead) {
+if (place_meeting(x + x_speed, y, obj_Solid)/* || dead*/) {
 	x_speed = 0;	// collision, so stop moving
 }
 
@@ -35,7 +36,7 @@ if (y_speed > 8) {
 	y_speed = 8;
 }
 
-if (place_meeting(x, y + y_speed, obj_Solid) || dead) {
+if (place_meeting(x, y + y_speed, obj_Solid) /* || dead*/) {
 	y_speed = 0;	// collision, so stop moving
 }
 
@@ -70,11 +71,6 @@ if (x_speed == 0) {
 // In the air
 if (!on_ground) {
 	sprite_index = jump_sprite;
-}
-
-// Dead
-if (dead) {
-	sprite_index = Player_death;
 }
 
 // Set the collision mask

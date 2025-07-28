@@ -20,6 +20,7 @@ dead = false;
 
 // Death
 die = function() {
+	sprite_index = Player_death;
 	dead = true;
 	audio_play_sound(Death, 1, false);
 	// Wait one-ish second before respawning

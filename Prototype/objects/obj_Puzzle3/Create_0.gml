@@ -71,9 +71,11 @@ run_puzzle = function () {
 	// Choose active wheel with up/down arrows
 	if (keyboard_check_pressed(vk_down)) {
 		active_wheel_index = (active_wheel_index + 1) mod 4;
+		audio_play_sound(Click, 1, false);
 	}
 	if (keyboard_check_pressed(vk_up)) {
 		active_wheel_index = (active_wheel_index - 1 + 4) mod 4;
+		audio_play_sound(Click, 1, false);
 	}
 	// Update which wheel is active
 	for (var i = 0; i < array_length(wheels); i++) {
@@ -89,10 +91,12 @@ run_puzzle = function () {
 			if (keyboard_check_pressed(vk_left)) {
 				w.turn(1);	// left = counterclockwise
 				incorrect = false;	// dismiss incorrect message
+				audio_play_sound(stone_sound, 1, false);
 			}
 			if (keyboard_check_pressed(vk_right)) {
 				w.turn(-1);	// right = clockwise
 				incorrect = false;
+				audio_play_sound(stone_sound, 1, false);
 			}
 		}
 	}
