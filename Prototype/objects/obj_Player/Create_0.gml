@@ -20,9 +20,9 @@ dead = false;
 
 // Death
 die = function() {
-	// play death animation
-	show_debug_message("death");
+	sprite_index = Player_death;
 	dead = true;
+	audio_play_sound(Death, 1, false);
 	// Wait one-ish second before respawning
 	alarm[0] = 80;
 }

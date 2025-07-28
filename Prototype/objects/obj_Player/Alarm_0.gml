@@ -64,6 +64,7 @@ with (obj_JournalManager) {
 		
 global.puzzle_active = false;
 global.prop = false;
+dead = false;
 
 with (obj_Trap) {
 	died = false;

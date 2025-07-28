@@ -1,4 +1,5 @@
 puzzle_solved = false;
+confetti = false;
 
 current_round = 0;	// Tracks which round we're on (0-2)
 total_rounds = 3;
@@ -10,6 +11,12 @@ round_complete_sprites = [
 	Pu2_S_Ex
 ];
 
+// Help
+help_btn = {x: 95, y: 985, sprite: Help_spr };
+help_instr = {x: 412, y: 128, sprite: Puzzle2_Instr };
+back_btn = {x: 790, y: 480, sprite: BackBtn_spr };
+help = false;	// true if help icon is clicked
+play_audio = false;
 
 // Spawns the correct pieces for each round
 run_round = function(index) {
@@ -36,9 +43,25 @@ run_round(current_round);	// Start the first round
 
 // Run puzzle
 run_puzzle = function () {
-	// Check if puzzle is solved
-	if (puzzle_solved) {
-		return;
+	// Check if puzzle is finished to play confetti
+	if (!puzzle_finished && confetti) {	// Flags to ensure alarm gets called once
+		puzzle_finished = true;
+		alarm[0] = 60;
+	}
+	
+	var mx = device_mouse_x_to_gui(0);
+	var my = device_mouse_y_to_gui(0);
+	
+	// Check if help icon is clicked
+	if (mouse_check_button_pressed(mb_left) && point_in_circle(mx, my, help_btn.x, help_btn.y, 54)) {
+		help = true;
+	}
+	
+	// Check if back button is clicked when help is shown
+	if (mouse_check_button_pressed(mb_left) && help && 
+		point_in_rectangle(mx, my, back_btn.x, back_btn.y, back_btn.x + sprite_get_width(back_btn.sprite), back_btn.y + sprite_get_height(back_btn.sprite))) {
+		
+		help = false;
 	}
 	
 	var anchor = noone;
@@ -60,13 +83,21 @@ run_puzzle = function () {
 	}
 	
 	if (all_correct) {
-		puzzle_solved = true;
+		play_audio = true;
 	}
+	if (!puzzle_solved && play_audio) {
+		puzzle_solved = true;
+		audio_play_sound(Win_sound, 1, false);
+	}
+	
 };
 
 // Draw puzzle
 draw_puzzle = function () {
-	if (puzzle_solved && !puzzle_finished) {
+	if (confetti) {
+		draw_sprite(ConfettiWin_spr, -1, 0, 0);
+	}
+	else if (puzzle_solved && !puzzle_finished) {
 		// Hide the pieces
 		with (obj_Puzzle2PieceV2) {
 			visible = false;
@@ -76,45 +107,39 @@ draw_puzzle = function () {
 		var full_sprite = round_complete_sprites[current_round];
 		draw_sprite(full_sprite, 0, display_get_gui_width() / 2, display_get_gui_height() / 2);
 		
+		// Draw help button
+		draw_sprite(help_btn.sprite, 0, help_btn.x, help_btn.y);
+		
 		if (mouse_check_button_pressed(mb_left)) {
 			if (current_round < total_rounds - 1) {	// More rounds to go
 				current_round++;
 				puzzle_solved = false;
+				play_audio = false;
 				run_round(current_round);
 			}
 			else {	// Last round is finished
-				puzzle_finished = true;
+				confetti = true;	// puzzle_finished
 			}
-		}
-	}
-	else if (puzzle_finished) {
-		draw_set_color(c_white);
-		draw_text(700, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
-		
-		if(draw_continue_button(860, 520)) {
-			solve_puzzle();
 		}
 	}
 	else {	// Draw puzzle
 		with (obj_Puzzle2PieceV2) {
 			draw_sprite(sprite_index, 0, x, y);
 		}
+		
+		// Draw help button
+		draw_sprite(help_btn.sprite, 0, help_btn.x, help_btn.y);
 			
 	}
-};
-
-// Puzzle is solved, so trigger something
-solve_puzzle = function() {
-	// Clean up and trigger external action
-	global.puzzle_active = false;
 	
-	with(obj_PuzzleManager) {
-		current_puzzle = noone;
+	if (help) {
+		// Background
+		draw_set_color(c_black);
+		draw_set_alpha(0.4);
+		draw_rectangle(0, 0, 1920, 1080, false);
+		draw_set_alpha(1);
+			
+		draw_sprite(help_instr.sprite, 0, help_instr.x, help_instr.y);
+		draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
 	}
-	
-	// Spawn portal
-	instance_create_layer(1490, 144, "Objects", obj_Portal);
-	
-	// Destroy the puzzle after it's solved
-	instance_destroy();
 };

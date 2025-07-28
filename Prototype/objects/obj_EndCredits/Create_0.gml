@@ -1,1 +1,1 @@
-btn_quit = { x: 800, y: 800, w: 320, h: 60 };
+btn_quit = { x: 1475, y: 800, sprite: MenuQuit_btn };

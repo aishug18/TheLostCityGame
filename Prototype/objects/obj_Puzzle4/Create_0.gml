@@ -1,42 +1,73 @@
 // Puzzle state
 puzzle_solved = false;
+confetti = false;
 state = "browse";	// "browse", "selecting", "complete", "done"
+incorrect = false;
 
 // Item list
 item_list = [
-	{ x: 990, y: 860, sprite: spr_Item1, desc: spr_Desc1, id: "bone", correct: true, selected: false },
-	{ x: 1590, y: 670, sprite: spr_Item2, desc: spr_Desc2, id: "skull", correct: true, selected: false },
-	{ x: 1340, y: 420, sprite: spr_Item3, desc: spr_Desc3, id: "mask", correct: false, selected: false },
-	{ x: 1350, y: 740, sprite: spr_Item4, desc: spr_Desc4, id: "acid", correct: true, selected: false },
-	{ x: 1060, y: 450, sprite: spr_Item5, desc: spr_Desc5, id: "statue", correct: false, selected: false },
-	{ x: 830, y: 300, sprite: spr_Item6, desc: spr_Desc6, id: "torch", correct: false, selected: false },
-	{ x: 670, y: 700, sprite: spr_Item7, desc: spr_Desc7, id: "scroll", correct: true, selected: false },
-	{ x: 510, y: 320, sprite: spr_Item8, desc: spr_Desc8, id: "knife", correct: true, selected: false },
-	{ x: 350, y: 610, sprite: spr_Item9, desc: spr_Desc9, id: "bowl", correct: false, selected: false },
-	{ x: 1570, y: 260, sprite: spr_Item10, desc: spr_Desc10, id: "vase", correct: false, selected: false },
+	{ x: 1312, y: 768, sprite: spr_Item1, desc: spr_Desc1, id: "stingray", correct: true, selected: false },
+	{ x: 32, y: 608, sprite: spr_Item2, desc: spr_Desc2, id: "pot", correct: true, selected: false },
+	{ x: 768, y: 896, sprite: spr_Item3, desc: spr_Desc3, id: "incense", correct: true, selected: false },
+	{ x: 448, y: 160, sprite: spr_Item4, desc: spr_Desc4, id: "censer", correct: true, selected: false },
+	{ x: 1600, y: 512, sprite: spr_Item5, desc: spr_Desc5, id: "cocoa", correct: false, selected: false },
+	{ x: 1152, y: 640, sprite: spr_Item6, desc: spr_Desc6, id: "knife", correct: false, selected: false },
+	{ x: 1632, y: 64, sprite: spr_Item7, desc: spr_Desc7, id: "handle", correct: false, selected: false },
+	{ x: 352, y: 672, sprite: spr_Item8, desc: spr_Desc8, id: "gold", correct: false, selected: false }
 ];
+
+// Props for background
+prop_list = [
+	{ x: 0, y: -32, sprite: Pu4_prop5 },
+	{ x: 1632, y: 32, sprite: Pu4_prop4 },
+	{ x: 1472, y: 640, sprite: Pu4_prop6 },
+	{ x: 832, y: 800, sprite: Pu4_prop1 },
+	{ x: 32, y: 704, sprite: Pu4_prop2 }
+	
+];
+
+// Collected items by player
+collected_items = [];
 
 // Variables
 selected_item = -1;	// index in item_list
-correct_collected = 0;	// count of correct items
-required_items = 5;	// total required items to find
+collected = 0;	// count of correct items
+required_items = 4;	// total required items to find
 
 // Button positions
-btn_putBack = { x: 400, y: 500, w: 150, h: 50 };	// later change to just position and sprite
-btn_store = { x: 600, y: 500, w: 150, h: 50};
+btn_putBack = { x: 450, y: 710, sprite: Pu4_btndrop };
+btn_store = { x: 1030, y: 710, sprite: Pu4_btnkeep };
+
+// Help
+help_btn = {x: 95, y: 985, sprite: Help_spr };
+help_instr = {x: 429, y: 138, sprite: Puzzle4_Instr };
+back_btn = {x: 790, y: 480, sprite: BackBtn_spr };
+help = false;	// true if help icon is clicked
 
 // Run puzzle
 run_puzzle = function () {
-	// Check if puzzle is solved
-	if (puzzle_solved) {
-		return;
+	// Check if puzzle is solved to play confetti
+	if (!puzzle_solved && confetti) {	// Flags to ensure alarm gets called once
+		puzzle_solved = true;
+		alarm[0] = 60;
 	}
 	
-	// run actual puzzle
 	var mx = device_mouse_x_to_gui(0);
 	var my = device_mouse_y_to_gui(0);
 	
-	if (state == "browse") {
+	// Check if help icon is clicked
+	if (mouse_check_button_pressed(mb_left) && point_in_circle(mx, my, help_btn.x, help_btn.y, 54)) {
+		help = true;
+	}
+	
+	// Check if back button is clicked when help is shown
+	if (mouse_check_button_pressed(mb_left) && help && 
+		point_in_rectangle(mx, my, back_btn.x, back_btn.y, back_btn.x + sprite_get_width(back_btn.sprite), back_btn.y + sprite_get_height(back_btn.sprite))) {
+		
+		help = false;
+	}
+	
+	if (state == "browse") {	// browsing for items
 		// Check for item click
 		for (var i = 0; i < array_length(item_list); i++) {
 			var item = item_list[i];
@@ -52,70 +83,119 @@ run_puzzle = function () {
 			}
 		}
 	}
-	else if (state == "selecting") {
+	else if (state == "selecting") {	// selected an item
 		// Button interactions
 		if (mouse_check_button_pressed(mb_left)) {
 			// Put back item
-            if (point_in_rectangle(mx, my, btn_putBack.x, btn_putBack.y, btn_putBack.x + btn_putBack.w, btn_putBack.y + btn_putBack.h)) {
+            if (point_in_rectangle(mx, my, btn_putBack.x, btn_putBack.y, btn_putBack.x + sprite_get_width(btn_putBack.sprite), btn_putBack.y + sprite_get_height(btn_putBack.sprite))) {
                 selected_item = -1;
                 state = "browse";
             }
 			// Store item in journal
-            else if (point_in_rectangle(mx, my, btn_store.x, btn_store.y, btn_store.x + btn_store.w, btn_store.y + btn_store.h)) {
+            else if (point_in_rectangle(mx, my, btn_store.x, btn_store.y, btn_store.x + sprite_get_width(btn_store.sprite), btn_store.y + sprite_get_height(btn_store.sprite))) {
                 var item = item_list[selected_item];
                 item_list[selected_item].selected = true;
 				
 				// Add item to journal
 				with (obj_JournalManager) {
-					add_clue(item.desc, 1400, 540);
+					add_clue(item.id, item.sprite, 1184, 352);
 				}
+				array_push(global.level_4_clues, item.id);
 				
-                // Check if it's correct
-                if (item.correct) {
-                    correct_collected += 1;
-                }
-
+				// Add to collected items
+				array_push(collected_items, item.id);
+                collected += 1;
+				
                 selected_item = -1;
-                if (correct_collected >= required_items) {
+                if (collected >= required_items) {
                     state = "complete";
-                    // (Optional) Start animation timer here
-                } else {
+                }
+				else {
                     state = "browse";
                 }
             }
         }
 	}
-	else if (state == "complete") {
-        // play animation or show sprite
-		// delay then ->
-		state = "done";
+	else if (state == "complete") {	// chose 4 items
+		// Check if the items collected were correct
+		correct1 = false;
+		correct2 = false;
+		correct3 = false;
+		correct4 = false;
+		chosen1 = collected_items[0];
+		chosen2 = collected_items[1];
+		chosen3 = collected_items[2];
+		chosen4 = collected_items[3];
+		
+		for (var i = 0; i < array_length(item_list); i++) {
+			if (item_list[i].id == chosen1 && item_list[i].correct) {
+				correct1 = true;
+			}
+			else if (item_list[i].id == chosen2 && item_list[i].correct) {
+				correct2 = true;
+			}
+			else if (item_list[i].id == chosen3 && item_list[i].correct) {
+				correct3 = true;
+			}
+			else if (item_list[i].id == chosen4 && item_list[i].correct) {
+				correct4 = true;
+			}
+		}
+		
+		if (correct1 && correct2 && correct3 && correct4) {	// all 4 collected items are correct
+			audio_play_sound(Win_sound, 1, false);
+			state = "done";
+		} else {	// one or more collected items is wrong
+			incorrect = true;
+			
+			audio_play_sound(lose_sound, 1, false);
+			
+			alarm[1] = 90;	// show incorrect message for a little
+			
+			// Restart puzzle and clean up state
+			for (var i = 0; i < array_length(item_list); i++) {
+				item_list[i].selected = false;
+			}
+			
+			for (var i = 0; i < 4; i++) {
+				with (obj_JournalManager) {
+					journal_remove_clue_by_id(other.collected_items[i]);
+				}
+				var index = array_get_index(global.level_4_clues, collected_items[i]);
+				array_delete(global.level_4_clues, index, 1);
+			}
+			
+			collected_items = [];
+			collected = 0;
+			
+			state = "browse";
+		}
     }
-	else if (state == "done") {
-		puzzle_solved = true;
+	else if (state == "done") {	// solved correctly
+		if (mouse_check_button_pressed(mb_left)) {
+			confetti = true;	// puzzle is done, play confetti
+		}
 	}
-	
 };
 
 // Draw puzzle
 draw_puzzle = function () {
-	if (puzzle_solved) {
-		// Draw victory message and continue button
-		draw_set_color(c_white);
-		draw_text(730, 480, is_undefined(victory_message) ? "Puzzle Solved!" : victory_message);
-		
-		if(draw_continue_button(860, 520)) {
-			solve_puzzle();
-		}
+	if (confetti) {
+		draw_sprite(ConfettiWin_spr, -1, 0, 0);
 	}
-	
-	// draw actual puzzle
 	else {
-		// Draw instructions
-		draw_sprite(spr_Puzzle4Instr, 0, 20, 20);
+		// Draw background
+		draw_sprite(Puzzle4_bg, 0, 0, 0);
+		
+		// Draw background props
+		for (var i = 0; i < array_length(prop_list); i++) {
+			var prop = prop_list[i];
+			draw_sprite(prop.sprite, 0, prop.x, prop.y);
+		}
 		
 		// Score display
 		draw_set_color(c_white);
-		draw_text(1770, 20, string(correct_collected) + " / " + string(required_items));
+		draw_text(1710, 50, string(collected) + " / " + string(required_items));
 		
 		if (state == "browse") {
 			// Draw all visible items
@@ -130,41 +210,40 @@ draw_puzzle = function () {
 			var item = item_list[selected_item];
 			
 			// Dim background
-			draw_set_alpha(0.5);
+			draw_set_alpha(0.3);
+			draw_set_color(c_black);
 			draw_rectangle(0, 0, 1920, 1080, false);
 			draw_set_alpha(1);
 			
-			// Draw description
-			draw_sprite(item.desc, 0, 100, 100);
+			// Draw description with item
+			draw_sprite(item.desc, 0, 300, 240);
+			draw_sprite(item.sprite, 0, 1100, 240);
 			
 			// Draw buttons
-			draw_set_color(c_white);
-	        draw_rectangle(btn_putBack.x, btn_putBack.y, btn_putBack.x + btn_putBack.w, btn_putBack.y + btn_putBack.h, false);
-	        draw_rectangle(btn_store.x, btn_store.y, btn_store.x + btn_store.w, btn_store.y + btn_store.h, false);
-
-	        draw_set_color(c_black);
-	        draw_text(btn_putBack.x + 20, btn_putBack.y + 15, "Put Back");
-	        draw_text(btn_store.x + 20, btn_store.y + 15, "Store");
+			draw_sprite(btn_putBack.sprite, 0, btn_putBack.x, btn_putBack.y);
+			draw_sprite(btn_store.sprite, 0, btn_store.x, btn_store.y);
 		}
-		else if (state == "complete") {
-			// Show completion sprite or animation
+		else if (state == "done") {	// Show final image
+			draw_sprite(Puzzle4_Finalbg, 0, 0, 0);
+			draw_sprite(Puzzle4_FinalEx, 0, 32, 16);
+		}
+		
+		if (incorrect) {	// Show incorrect sprite
+			draw_sprite(Incorrect_spr, 0, 710, 20);
+		}
+		
+		// Draw help button
+		draw_sprite(help_btn.sprite, 0, help_btn.x, help_btn.y);
+		
+		if (help) {
+			// Background
+			draw_set_color(c_black);
+			draw_set_alpha(0.4);
+			draw_rectangle(0, 0, 1920, 1080, false);
+			draw_set_alpha(1);
+			
+			draw_sprite(help_instr.sprite, 0, help_instr.x, help_instr.y);
+			draw_sprite(back_btn.sprite, 0, back_btn.x, back_btn.y);
 		}
 	}
-	
-};
-
-// Puzzle is solved, so trigger something
-solve_puzzle = function() {
-	// Clean up and trigger external action
-	global.puzzle_active = false;
-	
-	with(obj_PuzzleManager) {
-		current_puzzle = noone;
-	}
-	
-	// Spawn portal
-	instance_create_layer(128, 849, "Objects", obj_Portal);
-
-	// Destroy the puzzle after it's solved
-	instance_destroy();
 };

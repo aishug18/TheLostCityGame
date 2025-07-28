@@ -21,7 +21,7 @@ if (keyboard_check_pressed(vk_escape)) {	// Toggle pause
 		
 		// Deactivate everything other than this instance
 		instance_deactivate_all(true);
-		// this doesn't bause animating sprites or room backgrounds
+		// this doesn't pause animating sprites or room backgrounds
 		
 		// Capture this game moment (won't capture draw GUI contents though)
 		pause_surface = surface_create(res_w, res_h);
@@ -30,9 +30,9 @@ if (keyboard_check_pressed(vk_escape)) {	// Toggle pause
 		surface_reset_target();
 		
 		// Back up this surface to a buffer in case we lose it (screen focus, etc)
-		if (buffer_exists(pause_surf_buffer)) {
-			buffer_delete(pause_surf_buffer);
-		}
+		//if (buffer_exists(pause_surf_buffer)) {
+		//	buffer_delete(pause_surf_buffer);
+		//}
 		pause_surf_buffer = buffer_create(res_w * res_h * 4, buffer_fixed, 1);
 		buffer_get_surface(pause_surf_buffer, pause_surface, 0);
 	}
