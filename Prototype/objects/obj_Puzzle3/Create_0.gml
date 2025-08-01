@@ -172,6 +172,9 @@ draw_puzzle = function () {
 		// Draw help button
 		draw_sprite(help_btn.sprite, 0, help_btn.x, help_btn.y);
 		
+		// Draw enter instructions
+		draw_sprite(Mathpuzzle_instruc, 0, 860, 764);
+		
 		if (help) {
 			// Background
 			draw_set_color(c_black);
@@ -184,7 +187,7 @@ draw_puzzle = function () {
 		}
 		
 		if (incorrect) {
-			draw_sprite(Incorrect_spr, 0, 830, 510);
+			draw_sprite(Incorrect_spr, 0, 860, 510);
 		}
 	}
 };
